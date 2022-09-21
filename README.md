@@ -4,11 +4,16 @@
 
 This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours each and is focused on the application of R to the analysis of tabular data from medical datasets. 
 
-## Requirements
+## Prior knowledge
 
-No previous programming experience is required. Having a plain text editor installed is recommended.
+- No previous programming experience is required. 
+- Please review the following topics if you're not comfortable with them:
+   - basic linear algebra (operations with vectors and metrices)
+   - mathematical operations (exponentials, logarithms)
+   - basic statistics (mean, variance, median, standard deviation) 
+   - logical statements (AND, OR, NOT)
    
-## Sofware
+## Sofware requirements
 
 * [R >4.0](https://www.r-project.org)
 * [RStudio](https://www.rstudio.com/products/rstudio/download/)
