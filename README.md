@@ -16,7 +16,7 @@ No previous programming experience is required. Having a plain text editor insta
 Once you have setup R and RStudio copy the code below to install the packages required for the workshop.
 
 ```{r}
-install.packages(c("data.table","datasets","devtools","dplyr","ggplot2","ggthemes","grid","gridExtra","knitr","magrittr","plotly","plyr", "purrr", "RColorBrewer", "readr","rmarkdown","stringr","tidyr","tidyverse","tigris","viridis"))
+install.packages(c("data.table","datasets","devtools","dplyr","ggplot2","plyr","medicaldata","gapminder","RColorBrewer","rmarkdown","stringr","tidyr","tidyverse","viridis"))
 ```
 
 ## Workshop Outline
