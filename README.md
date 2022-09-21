@@ -2,7 +2,7 @@
 
 ## Overview
 
-This workshop is beginner-level introduction to programming in R. The course is designed to be taught in two sessions of 3 hours each and is focused on the application of R to the analysis of tabular data from medical datasets. 
+This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours each and is focused on the application of R to the analysis of tabular data from medical datasets. 
 
 ## Requirements
 
