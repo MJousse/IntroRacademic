@@ -84,7 +84,7 @@ This section will show participants how to (1) Create basic plots using base R f
 - Graphics with `ggplot2`
 
 
-### 6. Activity: Analyze COVID testing dataset
+### 6. Real life application: COVID testing dataset
 
 This hands-on activity will familiarize participants with a real-life use of R in the pharma industry environment and encorage them to 
 apply the knowledge from previous modules to create an analysis pipeline.
