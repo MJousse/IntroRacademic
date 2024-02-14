@@ -45,7 +45,7 @@ Comments are embedded into your code to help explain its purpose. This is extrem
 
 ## Arithmetic Operations
 
-```{r, echo=FALSE, out.width="80%",fig.align='center'}
+```{r, echo=FALSE, out.width="60%",fig.align='center'}
 knitr::include_graphics("images/ArithmeticOperators.png")
 ```
 
@@ -93,10 +93,13 @@ var2 <- "hello world"
 ```{r}
 var1
 var2
+
+print(var1)
+print(var2)
 ```
 
 ```{r}
-# It is also possible to use the '=' sign, but is not a good practice
+# It is also possible to use the '=' sign, but is NOT a good practice
 var1 = 12
 var2 = "hello world"
 var1
@@ -405,6 +408,8 @@ x^y
 
 ### Recycling
 
+If one of the vectors is smaller than the other, operations are still possible. R will replicate the smaller vector to enable the operation to occur. **IMPORTANT: if the larger vector is NOT a multiple of the smaller vector, the replication will still occur but will end at the length of the larger vector.**
+
 ```{r}
 x<-1:10
 y<-c(1,2)
@@ -704,6 +709,10 @@ typeof(df)
 -   There are several subtly different ways to call variables, observations and elements from data frames. Try them all and discuss with your team what they return. (Hint, use the function `typeof()`)\
 -   Take the list you created in 3 and coerce it into a data frame. Then change the names of the columns to "dataTypes" and "dataStructures".
 
+```{r}
+
+```
+
 # Control Structures & Functions
 
 ## Learning Objectives
@@ -785,6 +794,18 @@ Sometimes, we need to repeatedly use a sequence of code. Creating functions help
 
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
 knitr::include_graphics("images/Functions.png")
+```
+
+```{r}
+#Example Function that calculates mean
+
+new_mean <- function(values){
+  return(sum(values)/length(values))
+}
+
+x <- 1:5
+
+mean(x) == new_mean(x)
 ```
 
 ## Installing packages
@@ -1351,7 +1372,7 @@ gapminder %>%
 
 ### Some ggplot tricks
 
-Make sure your data has in the write format (wide vs long). Usually, ggplot requires the data in long format. The functions `tidyr::pivot_wider()` and `tidyr::pivot_longer()` are very useful to transform one into the other.
+Make sure your data is in the right format (wide vs long). Usually, ggplot requires the data in long format. The functions `tidyr::pivot_wider()` and `tidyr::pivot_longer()` are very useful to transform one into the other.
 
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
 knitr::include_graphics("images/DataFggplotpng.png")
@@ -1393,7 +1414,7 @@ p + scale_color_viridis_d(begin = 0.1,end=0.8)
 
 # Real life application
 
-1.  How many clinics participated in the study, and how many valid tests were performed on each one? Did the testing trend vary over time?
+1.  How many clinics participated in the study, and how many valid tests were performed on each one? Did the number of daily tests vary over time?
 2.  How many patients tested positive vs negative in the first 100 days of the pandemic? Do you notice any difference with the age of the patients? Hint: You can make two age groups and calculate the percentage each age group in positive vs negative tests, try using the function `ifelse()` to do this.
 3.  Look at the specimen processing time to receipt, did the sample processing times improve over the first 100 days of the pandemic? Plot the median processing times of each day over the course of the pandemic and then compare the summary statistics of the first 50 vs the last 50 days
 4.  **Bonus:** Higher viral loads are detected in less PCR cycles. What can you observe about the viral load of positive vs negative samples. Do you notice anything differences in viral load across ages in the positive samples? Hint: Also split the data into two age groups and try using `geom_boxplot()`

@@ -43,8 +43,8 @@ Number of clinics
 
 ```{r}
 clinics<- covid %>%
-          select(subject_id,clinic_name,result,pan_day) %>%
-          distinct()
+          dplyr::select(subject_id,clinic_name,result,pan_day) %>%
+          dplyr::distinct()
 length(unique(clinics$clinic_name))
 ```
 
