@@ -1,8 +1,12 @@
 ---
 title: 'Activity answers'
 subtitle: 'COVID19 testing'
-author: "Larisa M. Soto"
-date: "2022-09-14"
+author: 
+- name: "Adrien Osakwe"
+  affiliation: "Workshop Lead"
+- name: "Larisa M. Soto"
+  affiliation: "Original Material"
+date: "2023-02-14"
 output:
    rmdformats::html_clean:
     toc: true
@@ -14,12 +18,9 @@ output:
     df_print: paged
 ---
 
-```{r,echo=FALSE}
-htmltools::img(src = knitr::image_uri("../images/Micm_color_logo.png"), 
-               alt = 'logo', 
-               style = 'position:absolute; top:-10px; right:0; padding:10px; max-width:50%;')
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
+knitr::include_graphics("images/MiCM_Logo.jpg")
 ```
-
 
 ```{r}
 suppressPackageStartupMessages(library(ggplot2)) 
@@ -27,7 +28,6 @@ suppressPackageStartupMessages(library(medicaldata))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(tidyr))
 ```
-
 
 Use the `covid_testing` data set and everything you've learned so far to answer the following questions:
 
@@ -39,7 +39,7 @@ Use the `covid_testing` data set and everything you've learned so far to answer 
 covid<-covid_testing
 ```
 
-Number of clinics 
+Number of clinics
 
 ```{r}
 clinics<- covid %>%
@@ -74,7 +74,7 @@ covid %>%
 
 # Number of positive tests
 
-**How many patients tested positive vs negative in the first 100 days of the pandemic? Do you notice any difference with the age of the patients? Hint: You can make two age groups and calculate the percentage each age group in positive vs negative tests.** 
+**How many patients tested positive vs negative in the first 100 days of the pandemic? Do you notice any difference with the age of the patients? Hint: You can make two age groups and calculate the percentage each age group in positive vs negative tests.**
 
 Number of positive tests in the first 100 days
 
@@ -109,6 +109,7 @@ covid %>%
   geom_point()+
   geom_line()
 ```
+
 ```{r}
 covid %>%
   mutate(pan_day_group=ifelse(pan_day<50,"first_50","last_50")) %>%
@@ -119,9 +120,15 @@ covid %>%
                    max_col_rec_tat=max(col_rec_tat))
 ```
 
-# Bonus - Viral load 
+# Bonus - Viral load
 
-**Higher viral loads are detected in less PCR cycles. What can you observe about the viral load of positive vs negative samples. Do you notice anything differences in viral load across ages in the positive samples? Hint: Also split the data into two age groups and try using geom_boxplot()**
+**Higher viral loads are detected in less PCR cycles.**
+
+**What can you observe about the viral load of positive vs negative samples.**
+
+**Do you notice anything differences in viral load across ages in the positive samples?**
+
+**Hint: Also split the data into two age groups and try using geom_boxplot()**
 
 ```{r,warning=FALSE}
 ggplot(covid,aes(y=ct_result,x=result,color=result))+
@@ -134,4 +141,3 @@ covid %>%
   ggplot(.,aes(y=ct_result,x=result,color=age_group))+
     geom_boxplot()
 ```
-
