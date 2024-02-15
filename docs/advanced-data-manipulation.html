@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-02-14" />
+<meta name="date" content="2024-02-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
 <li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
 </ul></li>
+<li class="chapter" data-level="15" data-path="workshop-slides.html"><a href="workshop-slides.html"><i class="fa fa-check"></i><b>15</b> Workshop Slides</a></li>
 </ul>
 
       </nav>
@@ -316,11 +317,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>3. <code>group_by()</code> - to solve the split-apply-combine problem</p>
 <p>4. <code>summarize()</code> - to obtain summary statistics</p>
 <p>5. <code>mutate()</code> - to create new columns</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="advanced-data-manipulation.html#cb334-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="advanced-data-manipulation.html#cb330-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
 <div id="introducing-pipes" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Introducing pipes<a href="advanced-data-manipulation.html#introducing-pipes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="advanced-data-manipulation.html#cb335-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb335-2"><a href="advanced-data-manipulation.html#cb335-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="advanced-data-manipulation.html#cb331-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb331-2"><a href="advanced-data-manipulation.html#cb331-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -330,8 +331,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Afghanistan Asia       1967    34.0 11537966      836.
 ## 5 Afghanistan Asia       1972    36.1 13079460      740.
 ## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="advanced-data-manipulation.html#cb337-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb337-2"><a href="advanced-data-manipulation.html#cb337-2" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="advanced-data-manipulation.html#cb333-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb333-2"><a href="advanced-data-manipulation.html#cb333-2" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 6
 ##   country  continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -346,9 +347,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.1.2</span> Using <code>select()</code><a href="advanced-data-manipulation.html#using-select" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="images/select.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>To subset a data frame</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="advanced-data-manipulation.html#cb339-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">.data =</span> gapminder, </span>
-<span id="cb339-2"><a href="advanced-data-manipulation.html#cb339-2" tabindex="-1"></a>       year, country, gdpPercap) <span class="sc">%&gt;%</span></span>
-<span id="cb339-3"><a href="advanced-data-manipulation.html#cb339-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="advanced-data-manipulation.html#cb335-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">.data =</span> gapminder, </span>
+<span id="cb335-2"><a href="advanced-data-manipulation.html#cb335-2" tabindex="-1"></a>       year, country, gdpPercap) <span class="sc">%&gt;%</span></span>
+<span id="cb335-3"><a href="advanced-data-manipulation.html#cb335-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##    year country     gdpPercap
 ##   &lt;int&gt; &lt;fct&gt;           &lt;dbl&gt;
@@ -359,9 +360,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5  1972 Afghanistan      740.
 ## 6  1977 Afghanistan      786.</code></pre>
 <p>To remove columns</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="advanced-data-manipulation.html#cb341-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">.data =</span> gapminder, </span>
-<span id="cb341-2"><a href="advanced-data-manipulation.html#cb341-2" tabindex="-1"></a>       <span class="sc">-</span>continent) <span class="sc">%&gt;%</span></span>
-<span id="cb341-3"><a href="advanced-data-manipulation.html#cb341-3" tabindex="-1"></a>      <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="advanced-data-manipulation.html#cb337-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">.data =</span> gapminder, </span>
+<span id="cb337-2"><a href="advanced-data-manipulation.html#cb337-2" tabindex="-1"></a>       <span class="sc">-</span>continent) <span class="sc">%&gt;%</span></span>
+<span id="cb337-3"><a href="advanced-data-manipulation.html#cb337-3" tabindex="-1"></a>      <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 5
 ##   country      year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -371,9 +372,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Afghanistan  1967    34.0 11537966      836.
 ## 5 Afghanistan  1972    36.1 13079460      740.
 ## 6 Afghanistan  1977    38.4 14880372      786.</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="advanced-data-manipulation.html#cb343-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb343-2"><a href="advanced-data-manipulation.html#cb343-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(year, country, gdpPercap) <span class="sc">%&gt;%</span></span>
-<span id="cb343-3"><a href="advanced-data-manipulation.html#cb343-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="advanced-data-manipulation.html#cb339-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb339-2"><a href="advanced-data-manipulation.html#cb339-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(year, country, gdpPercap) <span class="sc">%&gt;%</span></span>
+<span id="cb339-3"><a href="advanced-data-manipulation.html#cb339-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##    year country     gdpPercap
 ##   &lt;int&gt; &lt;fct&gt;           &lt;dbl&gt;
@@ -387,10 +388,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="using-filter" class="section level3 hasAnchor" number="6.1.3">
 <h3><span class="header-section-number">6.1.3</span> Using <code>filter()</code><a href="advanced-data-manipulation.html#using-filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Include only European countries and select the columns year, country and gdpPercap</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="advanced-data-manipulation.html#cb345-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb345-2"><a href="advanced-data-manipulation.html#cb345-2" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb345-3"><a href="advanced-data-manipulation.html#cb345-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(year, country, gdpPercap) <span class="sc">%&gt;%</span></span>
-<span id="cb345-4"><a href="advanced-data-manipulation.html#cb345-4" tabindex="-1"></a>    <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="advanced-data-manipulation.html#cb341-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb341-2"><a href="advanced-data-manipulation.html#cb341-2" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb341-3"><a href="advanced-data-manipulation.html#cb341-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(year, country, gdpPercap) <span class="sc">%&gt;%</span></span>
+<span id="cb341-4"><a href="advanced-data-manipulation.html#cb341-4" tabindex="-1"></a>    <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##    year country gdpPercap
 ##   &lt;int&gt; &lt;fct&gt;       &lt;dbl&gt;
@@ -401,9 +402,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5  1972 Albania     3313.
 ## 6  1977 Albania     3533.</code></pre>
 <p>Using multiple filters at once</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="advanced-data-manipulation.html#cb347-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb347-2"><a href="advanced-data-manipulation.html#cb347-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>, year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb347-3"><a href="advanced-data-manipulation.html#cb347-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="advanced-data-manipulation.html#cb343-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb343-2"><a href="advanced-data-manipulation.html#cb343-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>, year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb343-3"><a href="advanced-data-manipulation.html#cb343-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, lifeExp)</span></code></pre></div>
 <pre><code>## # A tibble: 30 × 2
 ##    country                lifeExp
 ##    &lt;fct&gt;                    &lt;dbl&gt;
@@ -419,9 +420,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 France                    80.7
 ## # ℹ 20 more rows</code></pre>
 <p>Extract unique entries</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="advanced-data-manipulation.html#cb349-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb349-2"><a href="advanced-data-manipulation.html#cb349-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, continent) <span class="sc">%&gt;%</span></span>
-<span id="cb349-3"><a href="advanced-data-manipulation.html#cb349-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="advanced-data-manipulation.html#cb345-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb345-2"><a href="advanced-data-manipulation.html#cb345-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, continent) <span class="sc">%&gt;%</span></span>
+<span id="cb345-3"><a href="advanced-data-manipulation.html#cb345-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 2
 ##    country     continent
 ##    &lt;fct&gt;       &lt;fct&gt;    
@@ -437,10 +438,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Belgium     Europe   
 ## # ℹ 132 more rows</code></pre>
 <p>Order according to a column</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="advanced-data-manipulation.html#cb351-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb351-2"><a href="advanced-data-manipulation.html#cb351-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, continent,year,pop) <span class="sc">%&gt;%</span></span>
-<span id="cb351-3"><a href="advanced-data-manipulation.html#cb351-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(pop)) <span class="sc">%&gt;%</span></span>
-<span id="cb351-4"><a href="advanced-data-manipulation.html#cb351-4" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="advanced-data-manipulation.html#cb347-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb347-2"><a href="advanced-data-manipulation.html#cb347-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, continent,year,pop) <span class="sc">%&gt;%</span></span>
+<span id="cb347-3"><a href="advanced-data-manipulation.html#cb347-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(pop)) <span class="sc">%&gt;%</span></span>
+<span id="cb347-4"><a href="advanced-data-manipulation.html#cb347-4" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   country continent  year        pop
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;      &lt;int&gt;
@@ -455,7 +456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.1.4</span> Using <code>group_by()</code><a href="advanced-data-manipulation.html#using-group_by" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="images/groupby.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>It internally groups observations based on the specified variable(s)</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="advanced-data-manipulation.html#cb353-1" tabindex="-1"></a><span class="fu">str</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="advanced-data-manipulation.html#cb349-1" tabindex="-1"></a><span class="fu">str</span>(gapminder)</span></code></pre></div>
 <pre><code>## tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
 ##  $ country  : Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ continent: Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -463,7 +464,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...
 ##  $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 ##  $ gdpPercap: num [1:1704] 779 821 853 836 740 ...</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="advanced-data-manipulation.html#cb355-1" tabindex="-1"></a><span class="fu">str</span>(gapminder <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent))</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="advanced-data-manipulation.html#cb351-1" tabindex="-1"></a><span class="fu">str</span>(gapminder <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent))</span></code></pre></div>
 <pre><code>## gropd_df [1,704 × 6] (S3: grouped_df/tbl_df/tbl/data.frame)
 ##  $ country  : Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ continent: Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -485,10 +486,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="using-summarize" class="section level3 hasAnchor" number="6.1.5">
 <h3><span class="header-section-number">6.1.5</span> Using <code>summarize()</code><a href="advanced-data-manipulation.html#using-summarize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="images/summarize.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="advanced-data-manipulation.html#cb357-1" tabindex="-1"></a>gdp_c <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb357-2"><a href="advanced-data-manipulation.html#cb357-2" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb357-3"><a href="advanced-data-manipulation.html#cb357-3" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">mean_gdpPercap =</span> <span class="fu">mean</span>(gdpPercap))</span>
-<span id="cb357-4"><a href="advanced-data-manipulation.html#cb357-4" tabindex="-1"></a>gdp_c</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="advanced-data-manipulation.html#cb353-1" tabindex="-1"></a>gdp_c <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb353-2"><a href="advanced-data-manipulation.html#cb353-2" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb353-3"><a href="advanced-data-manipulation.html#cb353-3" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">mean_gdpPercap =</span> <span class="fu">mean</span>(gdpPercap))</span>
+<span id="cb353-4"><a href="advanced-data-manipulation.html#cb353-4" tabindex="-1"></a>gdp_c</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   continent mean_gdpPercap
 ##   &lt;fct&gt;              &lt;dbl&gt;
@@ -498,12 +499,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Europe            14469.
 ## 5 Oceania           18622.</code></pre>
 <p>Combine multiple summary statistics</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="advanced-data-manipulation.html#cb359-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb359-2"><a href="advanced-data-manipulation.html#cb359-2" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb359-3"><a href="advanced-data-manipulation.html#cb359-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">mean_le =</span> <span class="fu">mean</span>(lifeExp),</span>
-<span id="cb359-4"><a href="advanced-data-manipulation.html#cb359-4" tabindex="-1"></a>                      <span class="at">min_le =</span> <span class="fu">min</span>(lifeExp),</span>
-<span id="cb359-5"><a href="advanced-data-manipulation.html#cb359-5" tabindex="-1"></a>                      <span class="at">max_le =</span> <span class="fu">max</span>(lifeExp),</span>
-<span id="cb359-6"><a href="advanced-data-manipulation.html#cb359-6" tabindex="-1"></a>                      <span class="at">se_le =</span> <span class="fu">sd</span>(lifeExp)<span class="sc">/</span><span class="fu">sqrt</span>(dplyr<span class="sc">::</span><span class="fu">n</span>()))</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="advanced-data-manipulation.html#cb355-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb355-2"><a href="advanced-data-manipulation.html#cb355-2" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb355-3"><a href="advanced-data-manipulation.html#cb355-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">mean_le =</span> <span class="fu">mean</span>(lifeExp),</span>
+<span id="cb355-4"><a href="advanced-data-manipulation.html#cb355-4" tabindex="-1"></a>                      <span class="at">min_le =</span> <span class="fu">min</span>(lifeExp),</span>
+<span id="cb355-5"><a href="advanced-data-manipulation.html#cb355-5" tabindex="-1"></a>                      <span class="at">max_le =</span> <span class="fu">max</span>(lifeExp),</span>
+<span id="cb355-6"><a href="advanced-data-manipulation.html#cb355-6" tabindex="-1"></a>                      <span class="at">se_le =</span> <span class="fu">sd</span>(lifeExp)<span class="sc">/</span><span class="fu">sqrt</span>(dplyr<span class="sc">::</span><span class="fu">n</span>()))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 5
 ##   continent mean_le min_le max_le se_le
 ##   &lt;fct&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -515,8 +516,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-mutate" class="section level3 hasAnchor" number="6.1.6">
 <h3><span class="header-section-number">6.1.6</span> Using <code>mutate()</code><a href="advanced-data-manipulation.html#using-mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="advanced-data-manipulation.html#cb361-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb361-2"><a href="advanced-data-manipulation.html#cb361-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gdp_billion =</span> gdpPercap<span class="sc">*</span>pop<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="advanced-data-manipulation.html#cb357-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb357-2"><a href="advanced-data-manipulation.html#cb357-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gdp_billion =</span> gdpPercap<span class="sc">*</span>pop<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 7
 ##    country     continent  year lifeExp      pop gdpPercap gdp_billion
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;       &lt;dbl&gt;
@@ -534,17 +535,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="putting-them-all-together" class="section level3 hasAnchor" number="6.1.7">
 <h3><span class="header-section-number">6.1.7</span> Putting them all together<a href="advanced-data-manipulation.html#putting-them-all-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="advanced-data-manipulation.html#cb363-1" tabindex="-1"></a>gdp_pop_ext <span class="ot">&lt;-</span>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb363-2"><a href="advanced-data-manipulation.html#cb363-2" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gdp_billion =</span> gdpPercap<span class="sc">*</span>pop<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb363-3"><a href="advanced-data-manipulation.html#cb363-3" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent,year) <span class="sc">%&gt;%</span></span>
-<span id="cb363-4"><a href="advanced-data-manipulation.html#cb363-4" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">mean_gdpPercap =</span> <span class="fu">mean</span>(gdpPercap),</span>
-<span id="cb363-5"><a href="advanced-data-manipulation.html#cb363-5" tabindex="-1"></a>                                 <span class="at">sd_gdpPercap =</span> <span class="fu">sd</span>(gdpPercap),</span>
-<span id="cb363-6"><a href="advanced-data-manipulation.html#cb363-6" tabindex="-1"></a>                                 <span class="at">mean_pop =</span> <span class="fu">mean</span>(pop),</span>
-<span id="cb363-7"><a href="advanced-data-manipulation.html#cb363-7" tabindex="-1"></a>                                 <span class="at">sd_pop =</span> <span class="fu">sd</span>(pop),</span>
-<span id="cb363-8"><a href="advanced-data-manipulation.html#cb363-8" tabindex="-1"></a>                                 <span class="at">mean_gdp_billion =</span> <span class="fu">mean</span>(gdp_billion),</span>
-<span id="cb363-9"><a href="advanced-data-manipulation.html#cb363-9" tabindex="-1"></a>                                 <span class="at">sd_gdp_billion =</span> <span class="fu">sd</span>(gdp_billion)) </span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="advanced-data-manipulation.html#cb359-1" tabindex="-1"></a>gdp_pop_ext <span class="ot">&lt;-</span>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb359-2"><a href="advanced-data-manipulation.html#cb359-2" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gdp_billion =</span> gdpPercap<span class="sc">*</span>pop<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb359-3"><a href="advanced-data-manipulation.html#cb359-3" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent,year) <span class="sc">%&gt;%</span></span>
+<span id="cb359-4"><a href="advanced-data-manipulation.html#cb359-4" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">mean_gdpPercap =</span> <span class="fu">mean</span>(gdpPercap),</span>
+<span id="cb359-5"><a href="advanced-data-manipulation.html#cb359-5" tabindex="-1"></a>                                 <span class="at">sd_gdpPercap =</span> <span class="fu">sd</span>(gdpPercap),</span>
+<span id="cb359-6"><a href="advanced-data-manipulation.html#cb359-6" tabindex="-1"></a>                                 <span class="at">mean_pop =</span> <span class="fu">mean</span>(pop),</span>
+<span id="cb359-7"><a href="advanced-data-manipulation.html#cb359-7" tabindex="-1"></a>                                 <span class="at">sd_pop =</span> <span class="fu">sd</span>(pop),</span>
+<span id="cb359-8"><a href="advanced-data-manipulation.html#cb359-8" tabindex="-1"></a>                                 <span class="at">mean_gdp_billion =</span> <span class="fu">mean</span>(gdp_billion),</span>
+<span id="cb359-9"><a href="advanced-data-manipulation.html#cb359-9" tabindex="-1"></a>                                 <span class="at">sd_gdp_billion =</span> <span class="fu">sd</span>(gdp_billion)) </span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;continent&#39;. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="advanced-data-manipulation.html#cb365-1" tabindex="-1"></a>gdp_pop_ext</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="advanced-data-manipulation.html#cb361-1" tabindex="-1"></a>gdp_pop_ext</span></code></pre></div>
 <pre><code>## # A tibble: 60 × 8
 ## # Groups:   continent [5]
 ##    continent  year mean_gdpPercap sd_gdpPercap  mean_pop    sd_pop mean_gdp_billion sd_gdp_billion

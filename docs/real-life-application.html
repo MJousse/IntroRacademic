@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-02-14" />
+<meta name="date" content="2024-02-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
 <li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
 </ul></li>
+<li class="chapter" data-level="15" data-path="workshop-slides.html"><a href="workshop-slides.html"><i class="fa fa-check"></i><b>15</b> Workshop Slides</a></li>
 </ul>
 
       </nav>
@@ -304,10 +305,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Look at the specimen processing time to receipt, did the sample processing times improve over the first 100 days of the pandemic? Plot the median processing times of each day over the course of the pandemic and then compare the summary statistics of the first 50 vs the last 50 days</li>
 <li><strong>Bonus:</strong> Higher viral loads are detected in less PCR cycles. What can you observe about the viral load of positive vs negative samples. Do you notice anything differences in viral load across ages in the positive samples? Hint: Also split the data into two age groups and try using <code>geom_boxplot()</code></li>
 </ol>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="real-life-application.html#cb384-1" tabindex="-1"></a><span class="fu">library</span>(medicaldata)</span></code></pre></div>
-<pre><code>## Warning: package &#39;medicaldata&#39; was built under R version 4.2.3</code></pre>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="real-life-application.html#cb386-1" tabindex="-1"></a>covid<span class="ot">&lt;-</span>covid_testing</span>
-<span id="cb386-2"><a href="real-life-application.html#cb386-2" tabindex="-1"></a><span class="fu">dim</span>(covid)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="real-life-application.html#cb380-1" tabindex="-1"></a><span class="fu">library</span>(medicaldata)</span>
+<span id="cb380-2"><a href="real-life-application.html#cb380-2" tabindex="-1"></a>covid<span class="ot">&lt;-</span>covid_testing</span>
+<span id="cb380-3"><a href="real-life-application.html#cb380-3" tabindex="-1"></a><span class="fu">dim</span>(covid)</span></code></pre></div>
 <pre><code>## [1] 15524    17</code></pre>
 </div>
             </section>

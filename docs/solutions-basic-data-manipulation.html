@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-02-14" />
+<meta name="date" content="2024-02-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
 <li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
 </ul></li>
+<li class="chapter" data-level="15" data-path="workshop-slides.html"><a href="workshop-slides.html"><i class="fa fa-check"></i><b>15</b> Workshop Slides</a></li>
 </ul>
 
       </nav>
@@ -299,24 +300,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="solutions-basic-data-manipulation" class="section level1 hasAnchor" number="12">
 <h1><span class="header-section-number">12</span> Solutions || Basic Data Manipulation<a href="solutions-basic-data-manipulation.html#solutions-basic-data-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><img src="images/MiCM_Logo.jpg" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="solutions-basic-data-manipulation.html#cb399-1" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="solutions-basic-data-manipulation.html#cb393-1" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
 <div id="writing-data" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Writing data<a href="solutions-basic-data-manipulation.html#writing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Write a data processing snippet to include only the data points collected after 1995 in Asian countries as a CSV file</p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="solutions-basic-data-manipulation.html#cb400-1" tabindex="-1"></a>asia<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>year <span class="sc">&gt;</span> <span class="dv">1995</span> <span class="sc">&amp;</span> gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>, ]</span>
-<span id="cb400-2"><a href="solutions-basic-data-manipulation.html#cb400-2" tabindex="-1"></a><span class="fu">write.table</span>(asia,</span>
-<span id="cb400-3"><a href="solutions-basic-data-manipulation.html#cb400-3" tabindex="-1"></a>            <span class="at">file =</span> <span class="st">&quot;data/gapminder_after1995_asia.csv&quot;</span>,</span>
-<span id="cb400-4"><a href="solutions-basic-data-manipulation.html#cb400-4" tabindex="-1"></a>            <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, </span>
-<span id="cb400-5"><a href="solutions-basic-data-manipulation.html#cb400-5" tabindex="-1"></a>            <span class="at">quote =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb400-6"><a href="solutions-basic-data-manipulation.html#cb400-6" tabindex="-1"></a>            <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="solutions-basic-data-manipulation.html#cb394-1" tabindex="-1"></a>asia<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>year <span class="sc">&gt;</span> <span class="dv">1995</span> <span class="sc">&amp;</span> gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>, ]</span>
+<span id="cb394-2"><a href="solutions-basic-data-manipulation.html#cb394-2" tabindex="-1"></a><span class="fu">write.table</span>(asia,</span>
+<span id="cb394-3"><a href="solutions-basic-data-manipulation.html#cb394-3" tabindex="-1"></a>            <span class="at">file =</span> <span class="st">&quot;data/gapminder_after1995_asia.csv&quot;</span>,</span>
+<span id="cb394-4"><a href="solutions-basic-data-manipulation.html#cb394-4" tabindex="-1"></a>            <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, </span>
+<span id="cb394-5"><a href="solutions-basic-data-manipulation.html#cb394-5" tabindex="-1"></a>            <span class="at">quote =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb394-6"><a href="solutions-basic-data-manipulation.html#cb394-6" tabindex="-1"></a>            <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Separate the <code>gapminder</code> data frame into 5 individual data frames, one for each continent. Store those 5 data frames as an <code>RData</code> file in the <code>objects</code> folder called <code>continents.RData</code>.</p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="solutions-basic-data-manipulation.html#cb401-1" tabindex="-1"></a>asia<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>, ]</span>
-<span id="cb401-2"><a href="solutions-basic-data-manipulation.html#cb401-2" tabindex="-1"></a>africa<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Africa&quot;</span>, ]</span>
-<span id="cb401-3"><a href="solutions-basic-data-manipulation.html#cb401-3" tabindex="-1"></a>oceania<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Oceania&quot;</span>, ]</span>
-<span id="cb401-4"><a href="solutions-basic-data-manipulation.html#cb401-4" tabindex="-1"></a>europe<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Europe&quot;</span>, ]</span>
-<span id="cb401-5"><a href="solutions-basic-data-manipulation.html#cb401-5" tabindex="-1"></a>americas<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Americas&quot;</span>, ]</span>
-<span id="cb401-6"><a href="solutions-basic-data-manipulation.html#cb401-6" tabindex="-1"></a></span>
-<span id="cb401-7"><a href="solutions-basic-data-manipulation.html#cb401-7" tabindex="-1"></a><span class="fu">save</span>(asia,africa,oceania,europe,americas,<span class="at">file=</span><span class="st">&quot;objects/continents.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="solutions-basic-data-manipulation.html#cb395-1" tabindex="-1"></a>asia<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>, ]</span>
+<span id="cb395-2"><a href="solutions-basic-data-manipulation.html#cb395-2" tabindex="-1"></a>africa<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Africa&quot;</span>, ]</span>
+<span id="cb395-3"><a href="solutions-basic-data-manipulation.html#cb395-3" tabindex="-1"></a>oceania<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Oceania&quot;</span>, ]</span>
+<span id="cb395-4"><a href="solutions-basic-data-manipulation.html#cb395-4" tabindex="-1"></a>europe<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Europe&quot;</span>, ]</span>
+<span id="cb395-5"><a href="solutions-basic-data-manipulation.html#cb395-5" tabindex="-1"></a>americas<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>continent<span class="sc">==</span><span class="st">&quot;Americas&quot;</span>, ]</span>
+<span id="cb395-6"><a href="solutions-basic-data-manipulation.html#cb395-6" tabindex="-1"></a></span>
+<span id="cb395-7"><a href="solutions-basic-data-manipulation.html#cb395-7" tabindex="-1"></a><span class="fu">save</span>(asia,africa,oceania,europe,americas,<span class="at">file=</span><span class="st">&quot;objects/continents.RData&quot;</span>)</span></code></pre></div>
 </div>
 <div id="exploring-data-frames-1" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Exploring data frames<a href="solutions-basic-data-manipulation.html#exploring-data-frames-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -328,31 +329,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Explain the meaning of everything that <code>str(gapminder)</code> prints</li>
 </ul>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="solutions-basic-data-manipulation.html#cb402-1" tabindex="-1"></a><span class="fu">dim</span>(gapminder)</span>
-<span id="cb402-2"><a href="solutions-basic-data-manipulation.html#cb402-2" tabindex="-1"></a></span>
-<span id="cb402-3"><a href="solutions-basic-data-manipulation.html#cb402-3" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>country)</span>
-<span id="cb402-4"><a href="solutions-basic-data-manipulation.html#cb402-4" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>continent)</span>
-<span id="cb402-5"><a href="solutions-basic-data-manipulation.html#cb402-5" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>year)</span>
-<span id="cb402-6"><a href="solutions-basic-data-manipulation.html#cb402-6" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>lifeExp)</span>
-<span id="cb402-7"><a href="solutions-basic-data-manipulation.html#cb402-7" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>pop)</span>
-<span id="cb402-8"><a href="solutions-basic-data-manipulation.html#cb402-8" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>gdpPercap)</span>
-<span id="cb402-9"><a href="solutions-basic-data-manipulation.html#cb402-9" tabindex="-1"></a></span>
-<span id="cb402-10"><a href="solutions-basic-data-manipulation.html#cb402-10" tabindex="-1"></a><span class="fu">str</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="solutions-basic-data-manipulation.html#cb396-1" tabindex="-1"></a><span class="fu">dim</span>(gapminder)</span>
+<span id="cb396-2"><a href="solutions-basic-data-manipulation.html#cb396-2" tabindex="-1"></a></span>
+<span id="cb396-3"><a href="solutions-basic-data-manipulation.html#cb396-3" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>country)</span>
+<span id="cb396-4"><a href="solutions-basic-data-manipulation.html#cb396-4" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>continent)</span>
+<span id="cb396-5"><a href="solutions-basic-data-manipulation.html#cb396-5" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>year)</span>
+<span id="cb396-6"><a href="solutions-basic-data-manipulation.html#cb396-6" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>lifeExp)</span>
+<span id="cb396-7"><a href="solutions-basic-data-manipulation.html#cb396-7" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>pop)</span>
+<span id="cb396-8"><a href="solutions-basic-data-manipulation.html#cb396-8" tabindex="-1"></a><span class="fu">typeof</span>(gapminder<span class="sc">$</span>gdpPercap)</span>
+<span id="cb396-9"><a href="solutions-basic-data-manipulation.html#cb396-9" tabindex="-1"></a></span>
+<span id="cb396-10"><a href="solutions-basic-data-manipulation.html#cb396-10" tabindex="-1"></a><span class="fu">str</span>(gapminder)</span></code></pre></div>
 <p>In which years has the GDP of Canada been larger than the average of all data points?</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="solutions-basic-data-manipulation.html#cb403-1" tabindex="-1"></a>canada<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>country<span class="sc">==</span><span class="st">&quot;Canada&quot;</span>,]</span>
-<span id="cb403-2"><a href="solutions-basic-data-manipulation.html#cb403-2" tabindex="-1"></a>mgdp<span class="ot">&lt;-</span><span class="fu">mean</span>(canada<span class="sc">$</span>gdpPercap)</span>
-<span id="cb403-3"><a href="solutions-basic-data-manipulation.html#cb403-3" tabindex="-1"></a>canada[canada<span class="sc">$</span>gdpPercap<span class="sc">&gt;</span>mgdp,<span class="st">&quot;year&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="solutions-basic-data-manipulation.html#cb397-1" tabindex="-1"></a>canada<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>country<span class="sc">==</span><span class="st">&quot;Canada&quot;</span>,]</span>
+<span id="cb397-2"><a href="solutions-basic-data-manipulation.html#cb397-2" tabindex="-1"></a>mgdp<span class="ot">&lt;-</span><span class="fu">mean</span>(canada<span class="sc">$</span>gdpPercap)</span>
+<span id="cb397-3"><a href="solutions-basic-data-manipulation.html#cb397-3" tabindex="-1"></a>canada[canada<span class="sc">$</span>gdpPercap<span class="sc">&gt;</span>mgdp,<span class="st">&quot;year&quot;</span>]</span></code></pre></div>
 <p>Find the mean life expectancy of Switzerland before and after 2000</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="solutions-basic-data-manipulation.html#cb404-1" tabindex="-1"></a>swiss<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>country<span class="sc">==</span><span class="st">&quot;Switzerland&quot;</span>,]</span>
-<span id="cb404-2"><a href="solutions-basic-data-manipulation.html#cb404-2" tabindex="-1"></a><span class="fu">mean</span>(swiss[swiss<span class="sc">$</span>year<span class="sc">&lt;</span><span class="dv">2000</span>,]<span class="sc">$</span>lifeExp) <span class="co"># Before</span></span>
-<span id="cb404-3"><a href="solutions-basic-data-manipulation.html#cb404-3" tabindex="-1"></a><span class="fu">mean</span>(swiss[swiss<span class="sc">$</span>year<span class="sc">&gt;</span><span class="dv">2000</span>,]<span class="sc">$</span>lifeExp) <span class="co"># After</span></span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="solutions-basic-data-manipulation.html#cb398-1" tabindex="-1"></a>swiss<span class="ot">&lt;-</span>gapminder[gapminder<span class="sc">$</span>country<span class="sc">==</span><span class="st">&quot;Switzerland&quot;</span>,]</span>
+<span id="cb398-2"><a href="solutions-basic-data-manipulation.html#cb398-2" tabindex="-1"></a><span class="fu">mean</span>(swiss[swiss<span class="sc">$</span>year<span class="sc">&lt;</span><span class="dv">2000</span>,]<span class="sc">$</span>lifeExp) <span class="co"># Before</span></span>
+<span id="cb398-3"><a href="solutions-basic-data-manipulation.html#cb398-3" tabindex="-1"></a><span class="fu">mean</span>(swiss[swiss<span class="sc">$</span>year<span class="sc">&gt;</span><span class="dv">2000</span>,]<span class="sc">$</span>lifeExp) <span class="co"># After</span></span></code></pre></div>
 <p>You discovered that all the entries from 2007 are actually from 2008. Create a copy of the full <code>gapminder</code> data frame in an object called <code>gp</code>. Then change the year column to correct the entries from 2007.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="solutions-basic-data-manipulation.html#cb405-1" tabindex="-1"></a>gp<span class="ot">&lt;-</span>gapminder</span>
-<span id="cb405-2"><a href="solutions-basic-data-manipulation.html#cb405-2" tabindex="-1"></a>gp[gp<span class="sc">$</span>year<span class="sc">==</span><span class="dv">2007</span>,<span class="st">&quot;year&quot;</span>]<span class="ot">&lt;-</span><span class="dv">2008</span></span>
-<span id="cb405-3"><a href="solutions-basic-data-manipulation.html#cb405-3" tabindex="-1"></a>gp[gp<span class="sc">$</span>year<span class="sc">==</span><span class="dv">2008</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="solutions-basic-data-manipulation.html#cb399-1" tabindex="-1"></a>gp<span class="ot">&lt;-</span>gapminder</span>
+<span id="cb399-2"><a href="solutions-basic-data-manipulation.html#cb399-2" tabindex="-1"></a>gp[gp<span class="sc">$</span>year<span class="sc">==</span><span class="dv">2007</span>,<span class="st">&quot;year&quot;</span>]<span class="ot">&lt;-</span><span class="dv">2008</span></span>
+<span id="cb399-3"><a href="solutions-basic-data-manipulation.html#cb399-3" tabindex="-1"></a>gp[gp<span class="sc">$</span>year<span class="sc">==</span><span class="dv">2008</span>,]</span></code></pre></div>
 <p><strong>Bonus -</strong> Find the mean life expectancy and mean gdp per continent using the function <code>tapply</code></p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="solutions-basic-data-manipulation.html#cb406-1" tabindex="-1"></a><span class="fu">tapply</span>(gapminder<span class="sc">$</span>lifeExp,gapminder<span class="sc">$</span>continent,mean)</span></code></pre></div>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="solutions-basic-data-manipulation.html#cb407-1" tabindex="-1"></a><span class="fu">tapply</span>(gapminder<span class="sc">$</span>lifeExp,gapminder<span class="sc">$</span>continent,mean)</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="solutions-basic-data-manipulation.html#cb400-1" tabindex="-1"></a><span class="fu">tapply</span>(gapminder<span class="sc">$</span>lifeExp,gapminder<span class="sc">$</span>continent,mean)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="solutions-basic-data-manipulation.html#cb401-1" tabindex="-1"></a><span class="fu">tapply</span>(gapminder<span class="sc">$</span>lifeExp,gapminder<span class="sc">$</span>continent,mean)</span></code></pre></div>
 
 </div>
 </div>

@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-02-14" />
+<meta name="date" content="2024-02-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
 <li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
 </ul></li>
+<li class="chapter" data-level="15" data-path="workshop-slides.html"><a href="workshop-slides.html"><i class="fa fa-check"></i><b>15</b> Workshop Slides</a></li>
 </ul>
 
       </nav>
@@ -302,15 +303,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vectors-1" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Vectors<a href="solutions-data-types.html#vectors-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Make a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS).</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="solutions-data-types.html#cb392-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span></span>
-<span id="cb392-2"><a href="solutions-data-types.html#cb392-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb392-3"><a href="solutions-data-types.html#cb392-3" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> LETTERS</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="solutions-data-types.html#cb386-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span></span>
+<span id="cb386-2"><a href="solutions-data-types.html#cb386-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb386-3"><a href="solutions-data-types.html#cb386-3" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> LETTERS</span></code></pre></div>
 </div>
 <div id="matrices-1" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Matrices<a href="solutions-data-types.html#matrices-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Make a matrix with the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behavior? Once you have figured it out, try to change the default. (hint: read the documentation for <code>matrix</code>)</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="solutions-data-types.html#cb393-1" tabindex="-1"></a><span class="co"># By default the matrix is filled by columns, we can change this behavior using byrow=TRUE</span></span>
-<span id="cb393-2"><a href="solutions-data-types.html#cb393-2" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,<span class="at">ncol =</span> <span class="dv">5</span>,<span class="at">nrow =</span> <span class="dv">10</span>,<span class="at">byrow =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="solutions-data-types.html#cb387-1" tabindex="-1"></a><span class="co"># By default the matrix is filled by columns, we can change this behavior using byrow=TRUE</span></span>
+<span id="cb387-2"><a href="solutions-data-types.html#cb387-2" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,<span class="at">ncol =</span> <span class="dv">5</span>,<span class="at">nrow =</span> <span class="dv">10</span>,<span class="at">byrow =</span> T)</span></code></pre></div>
 <p>Bonus: Which of the following commands was used to generate the matrix below?</p>
 <ul>
 <li><code>matrix(c(4, 1, 9, 5, 10, 7), nrow = 3)</code></li>
@@ -318,7 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>matrix(c(4, 9, 10, 1, 5, 7), nrow = 2)</code></li>
 <li><code>matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)</code></li>
 </ul>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="solutions-data-types.html#cb394-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">7</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="solutions-data-types.html#cb388-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">7</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    4    1
 ## [2,]    9    5
@@ -327,9 +328,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lists-1" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> Lists<a href="solutions-data-types.html#lists-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Create a list of length two containing a character vector for each of the data sections: (1) Data types and (2) Data structures. Populate each character vector with the names of the data types and data structures, respectively.</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="solutions-data-types.html#cb396-1" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;double&#39;</span>, <span class="st">&#39;complex&#39;</span>, <span class="st">&#39;integer&#39;</span>, <span class="st">&#39;character&#39;</span>, <span class="st">&#39;logical&#39;</span>)</span>
-<span id="cb396-2"><a href="solutions-data-types.html#cb396-2" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;data.frame&#39;</span>, <span class="st">&#39;vector&#39;</span>, <span class="st">&#39;factor&#39;</span>, <span class="st">&#39;list&#39;</span>, <span class="st">&#39;matrix&#39;</span>)</span>
-<span id="cb396-3"><a href="solutions-data-types.html#cb396-3" tabindex="-1"></a>data.sections <span class="ot">&lt;-</span> <span class="fu">list</span>(dt, ds)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="solutions-data-types.html#cb390-1" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;double&#39;</span>, <span class="st">&#39;complex&#39;</span>, <span class="st">&#39;integer&#39;</span>, <span class="st">&#39;character&#39;</span>, <span class="st">&#39;logical&#39;</span>)</span>
+<span id="cb390-2"><a href="solutions-data-types.html#cb390-2" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;data.frame&#39;</span>, <span class="st">&#39;vector&#39;</span>, <span class="st">&#39;factor&#39;</span>, <span class="st">&#39;list&#39;</span>, <span class="st">&#39;matrix&#39;</span>)</span>
+<span id="cb390-3"><a href="solutions-data-types.html#cb390-3" tabindex="-1"></a>data.sections <span class="ot">&lt;-</span> <span class="fu">list</span>(dt, ds)</span></code></pre></div>
 </div>
 <div id="data-frames-1" class="section level2 hasAnchor" number="11.4">
 <h2><span class="header-section-number">11.4</span> Data frames<a href="solutions-data-types.html#data-frames-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -343,26 +344,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>iris[,1]</code></li>
 <li><code>iris[1,]</code></li>
 </ul>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="solutions-data-types.html#cb397-1" tabindex="-1"></a><span class="co"># The single brace [1] returns the first slice of the list, as another list. In this case it is the first column of the data frame.</span></span>
-<span id="cb397-2"><a href="solutions-data-types.html#cb397-2" tabindex="-1"></a>iris[<span class="dv">1</span>]</span>
-<span id="cb397-3"><a href="solutions-data-types.html#cb397-3" tabindex="-1"></a><span class="co"># The double brace [[1]] returns the contents of the list item. In this case it is the contents of the first column, a vector of type factor.</span></span>
-<span id="cb397-4"><a href="solutions-data-types.html#cb397-4" tabindex="-1"></a>iris[[<span class="dv">1</span>]]</span>
-<span id="cb397-5"><a href="solutions-data-types.html#cb397-5" tabindex="-1"></a><span class="co"># This example uses the $ character to address items by name. Species is a vector of type factor.</span></span>
-<span id="cb397-6"><a href="solutions-data-types.html#cb397-6" tabindex="-1"></a>iris<span class="sc">$</span>Species</span>
-<span id="cb397-7"><a href="solutions-data-types.html#cb397-7" tabindex="-1"></a><span class="co"># A single brace [&quot;Species&quot;] instead of the index number with the column name will also return a list like in the first example</span></span>
-<span id="cb397-8"><a href="solutions-data-types.html#cb397-8" tabindex="-1"></a>iris[<span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb397-9"><a href="solutions-data-types.html#cb397-9" tabindex="-1"></a><span class="co"># First element of first row and first column. The returned element is an integer</span></span>
-<span id="cb397-10"><a href="solutions-data-types.html#cb397-10" tabindex="-1"></a>iris[<span class="dv">1</span>,<span class="dv">1</span>]</span>
-<span id="cb397-11"><a href="solutions-data-types.html#cb397-11" tabindex="-1"></a><span class="co"># First column. Returns a vector</span></span>
-<span id="cb397-12"><a href="solutions-data-types.html#cb397-12" tabindex="-1"></a>iris[,<span class="dv">1</span>]</span>
-<span id="cb397-13"><a href="solutions-data-types.html#cb397-13" tabindex="-1"></a><span class="co"># First row. Returns a list with all the values in the first row.</span></span>
-<span id="cb397-14"><a href="solutions-data-types.html#cb397-14" tabindex="-1"></a>iris[<span class="dv">1</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="solutions-data-types.html#cb391-1" tabindex="-1"></a><span class="co"># The single brace [1] returns the first slice of the list, as another list. In this case it is the first column of the data frame.</span></span>
+<span id="cb391-2"><a href="solutions-data-types.html#cb391-2" tabindex="-1"></a>iris[<span class="dv">1</span>]</span>
+<span id="cb391-3"><a href="solutions-data-types.html#cb391-3" tabindex="-1"></a><span class="co"># The double brace [[1]] returns the contents of the list item. In this case it is the contents of the first column, a vector of type factor.</span></span>
+<span id="cb391-4"><a href="solutions-data-types.html#cb391-4" tabindex="-1"></a>iris[[<span class="dv">1</span>]]</span>
+<span id="cb391-5"><a href="solutions-data-types.html#cb391-5" tabindex="-1"></a><span class="co"># This example uses the $ character to address items by name. Species is a vector of type factor.</span></span>
+<span id="cb391-6"><a href="solutions-data-types.html#cb391-6" tabindex="-1"></a>iris<span class="sc">$</span>Species</span>
+<span id="cb391-7"><a href="solutions-data-types.html#cb391-7" tabindex="-1"></a><span class="co"># A single brace [&quot;Species&quot;] instead of the index number with the column name will also return a list like in the first example</span></span>
+<span id="cb391-8"><a href="solutions-data-types.html#cb391-8" tabindex="-1"></a>iris[<span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb391-9"><a href="solutions-data-types.html#cb391-9" tabindex="-1"></a><span class="co"># First element of first row and first column. The returned element is an integer</span></span>
+<span id="cb391-10"><a href="solutions-data-types.html#cb391-10" tabindex="-1"></a>iris[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb391-11"><a href="solutions-data-types.html#cb391-11" tabindex="-1"></a><span class="co"># First column. Returns a vector</span></span>
+<span id="cb391-12"><a href="solutions-data-types.html#cb391-12" tabindex="-1"></a>iris[,<span class="dv">1</span>]</span>
+<span id="cb391-13"><a href="solutions-data-types.html#cb391-13" tabindex="-1"></a><span class="co"># First row. Returns a list with all the values in the first row.</span></span>
+<span id="cb391-14"><a href="solutions-data-types.html#cb391-14" tabindex="-1"></a>iris[<span class="dv">1</span>,]</span></code></pre></div>
 </div>
 <div id="coercion-1" class="section level2 hasAnchor" number="11.5">
 <h2><span class="header-section-number">11.5</span> Coercion<a href="solutions-data-types.html#coercion-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Take the list you created in 3 and coerce it into a data frame. Then change the names of the columns to “dataTypes” and “dataStructures”</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="solutions-data-types.html#cb398-1" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(data.sections)</span>
-<span id="cb398-2"><a href="solutions-data-types.html#cb398-2" tabindex="-1"></a><span class="fu">colnames</span>(df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;dataTypes&quot;</span>,<span class="st">&quot;dataStructures&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="solutions-data-types.html#cb392-1" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(data.sections)</span>
+<span id="cb392-2"><a href="solutions-data-types.html#cb392-2" tabindex="-1"></a><span class="fu">colnames</span>(df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;dataTypes&quot;</span>,<span class="st">&quot;dataStructures&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
