@@ -1,6 +1,5 @@
 ---
-title: "Hands-on"
-subtitle: "Basic data manipulation"
+title: "Intro to R"
 author: 
 - name: "Adrien Osakwe"
   affiliation: Workshop Lead
@@ -16,11 +15,12 @@ output:
     code_folding: hide
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,eval=TRUE)
 
 ```
 
+# Solutions || Basic Data Manipulation
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
 knitr::include_graphics("images/MiCM_Logo.jpg")
 ```
@@ -31,7 +31,7 @@ library(gapminder)
 ```
 
 
-# Writing data 
+## Writing data 
 
 Write a data processing snippet to include only the data points collected after 1995 in Asian countries as a CSV file
 
@@ -57,7 +57,7 @@ americas<-gapminder[gapminder$continent=="Americas", ]
 save(asia,africa,oceania,europe,americas,file="objects/continents.RData")
 ```
 
-# Exploring data frames 
+## Exploring data frames 
 
 Finish exploring the `gapminder` data frame and:
 

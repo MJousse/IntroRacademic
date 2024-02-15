@@ -1,6 +1,5 @@
 ---
-title: "Hands-on"
-subtitle: "Data types"
+title: "Intro to R"
 author: 
 - name: "Adrien Osakwe"
   affiliation: Workshop Lead
@@ -16,15 +15,16 @@ output:
     code_folding: hide
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Solutions || Data Types
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
 knitr::include_graphics("images/MiCM_Logo.jpg")
 ```
 
-# Vectors
+## Vectors
 
 Make a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS).
 
@@ -34,7 +34,7 @@ x <- x * 2
 names(x) <- LETTERS
 ```
 
-# Matrices
+## Matrices
 
 Make a matrix with the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behavior? Once you have figured it out, try to change the default. (hint: read the documentation for `matrix`)
 
@@ -54,7 +54,7 @@ Bonus: Which of the following commands was used to generate the matrix below?
 matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
 ```
 
-# Lists
+## Lists
 
 Create a list of length two containing a character vector for each of the data sections: (1) Data types and (2) Data structures. Populate each character vector with the names of the data types and data structures, respectively.
 
@@ -64,7 +64,7 @@ ds <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
 data.sections <- list(dt, ds)
 ```
 
-# Data frames
+## Data frames
 
 There are several subtly different ways to call variables, observations and elements from data frames. Try them all and discuss with your team what they return. (Hint, use the function `typeof()`)
 
@@ -93,7 +93,7 @@ iris[,1]
 iris[1,]
 ```
 
-# Coercion
+## Coercion
 
 Take the list you created in 3 and coerce it into a data frame. Then change the names of the columns to "dataTypes" and "dataStructures"
 

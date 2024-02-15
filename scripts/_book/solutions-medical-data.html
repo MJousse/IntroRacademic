@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 Solutions || Medical Data | Intro to R</title>
+  <meta name="description" content="14 Solutions || Medical Data | Intro to R" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 Solutions || Medical Data | Intro to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 Solutions || Medical Data | Intro to R" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-02-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="solutions-adv.-data-manipulation.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro to R Bookdown</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-markdown-file"><i class="fa fa-check"></i><b>2.1</b> R Markdown File</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.2</b> <strong>Learning objectives</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#comments"><i class="fa fa-check"></i><b>2.3</b> <strong>Comments</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#arithmetic-operations"><i class="fa fa-check"></i><b>2.4</b> Arithmetic Operations</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#syntax"><i class="fa fa-check"></i><b>2.5</b> Syntax</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#creating-variables"><i class="fa fa-check"></i><b>2.6</b> Creating variables</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#printing-variables"><i class="fa fa-check"></i><b>2.7</b> Printing Variables</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical-operators"><i class="fa fa-check"></i><b>2.8</b> Logical operators</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise"><i class="fa fa-check"></i><b>2.9</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html"><i class="fa fa-check"></i><b>3</b> Data types and data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data Types</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#numeric"><i class="fa fa-check"></i><b>3.3.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#integer"><i class="fa fa-check"></i><b>3.3.2</b> Integer</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#logical"><i class="fa fa-check"></i><b>3.3.3</b> Logical</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector-attributes"><i class="fa fa-check"></i><b>3.3.5</b> Vector attributes</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions"><i class="fa fa-check"></i><b>3.3.6</b> Built-in functions</a></li>
+<li class="chapter" data-level="3.3.7" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector-operations"><i class="fa fa-check"></i><b>3.3.7</b> Vector Operations</a></li>
+<li class="chapter" data-level="3.3.8" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#recycling"><i class="fa fa-check"></i><b>3.3.8</b> Recycling</a></li>
+<li class="chapter" data-level="3.3.9" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-subsetting"><i class="fa fa-check"></i><b>3.3.9</b> Indexing and subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#lists"><i class="fa fa-check"></i><b>3.4</b> Lists</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-subsetting-1"><i class="fa fa-check"></i><b>3.4.1</b> Indexing and subsetting</a></li>
+<li class="chapter" data-level="3.4.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-1"><i class="fa fa-check"></i><b>3.4.2</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#factors"><i class="fa fa-check"></i><b>3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#exercise-3"><i class="fa fa-check"></i><b>3.6</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-2"><i class="fa fa-check"></i><b>3.6.1</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#matrices"><i class="fa fa-check"></i><b>3.7</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#attributes"><i class="fa fa-check"></i><b>3.7.1</b> Attributes</a></li>
+<li class="chapter" data-level="3.7.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-3"><i class="fa fa-check"></i><b>3.7.2</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-frames"><i class="fa fa-check"></i><b>3.8</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-sub-setting"><i class="fa fa-check"></i><b>3.8.1</b> Indexing and sub-setting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#coercion"><i class="fa fa-check"></i><b>3.9</b> Coercion</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#hands-on-data-types"><i class="fa fa-check"></i><b>3.10</b> Hands on: Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="control-structures-functions.html"><a href="control-structures-functions.html"><i class="fa fa-check"></i><b>4</b> Control Structures &amp; Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="control-structures-functions.html"><a href="control-structures-functions.html#learning-objectives-1"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="control-structures-functions.html"><a href="control-structures-functions.html#conditional-statements"><i class="fa fa-check"></i><b>4.2</b> Conditional Statements</a></li>
+<li class="chapter" data-level="4.3" data-path="control-structures-functions.html"><a href="control-structures-functions.html#for-while-loops"><i class="fa fa-check"></i><b>4.3</b> For &amp; While Loops</a></li>
+<li class="chapter" data-level="4.4" data-path="control-structures-functions.html"><a href="control-structures-functions.html#functions"><i class="fa fa-check"></i><b>4.4</b> Functions</a></li>
+<li class="chapter" data-level="4.5" data-path="control-structures-functions.html"><a href="control-structures-functions.html#installing-packages"><i class="fa fa-check"></i><b>4.5</b> Installing packages</a></li>
+<li class="chapter" data-level="4.6" data-path="control-structures-functions.html"><a href="control-structures-functions.html#detour-seeking-help"><i class="fa fa-check"></i><b>4.6</b> Detour || Seeking help</a></li>
+<li class="chapter" data-level="4.7" data-path="control-structures-functions.html"><a href="control-structures-functions.html#exercise-5"><i class="fa fa-check"></i><b>4.7</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="control-structures-functions.html"><a href="control-structures-functions.html#section"><i class="fa fa-check"></i><b>4.7.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>5</b> Basic data manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#readingwriting-data"><i class="fa fa-check"></i><b>5.1</b> Reading/writing data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#text-files"><i class="fa fa-check"></i><b>5.1.1</b> Text files</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#r-objects"><i class="fa fa-check"></i><b>5.1.2</b> R objects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#exploring-data-frames"><i class="fa fa-check"></i><b>5.2</b> Exploring data frames</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-columns-and-rows"><i class="fa fa-check"></i><b>5.2.1</b> Adding columns and rows</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#removing-columns-and-rows"><i class="fa fa-check"></i><b>5.2.2</b> Removing columns and rows</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#applying-filters"><i class="fa fa-check"></i><b>5.2.3</b> Applying filters</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#editing-specific-elements"><i class="fa fa-check"></i><b>5.2.4</b> Editing specific elements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#hands-on-basic-data-manipulation"><i class="fa fa-check"></i><b>5.3</b> Hands-on: basic data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Advanced data manipulation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#manipulation-with-dplyr"><i class="fa fa-check"></i><b>6.1</b> Manipulation with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#introducing-pipes"><i class="fa fa-check"></i><b>6.1.1</b> Introducing pipes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-select"><i class="fa fa-check"></i><b>6.1.2</b> Using <code>select()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-filter"><i class="fa fa-check"></i><b>6.1.3</b> Using <code>filter()</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-group_by"><i class="fa fa-check"></i><b>6.1.4</b> Using <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.1.5" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-summarize"><i class="fa fa-check"></i><b>6.1.5</b> Using <code>summarize()</code></a></li>
+<li class="chapter" data-level="6.1.6" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-mutate"><i class="fa fa-check"></i><b>6.1.6</b> Using <code>mutate()</code></a></li>
+<li class="chapter" data-level="6.1.7" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#putting-them-all-together"><i class="fa fa-check"></i><b>6.1.7</b> Putting them all together</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#hands-on-advanced-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Hands-on advanced data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html"><i class="fa fa-check"></i><b>7</b> Generating visual outputs</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#graphics-with-base-r"><i class="fa fa-check"></i><b>7.1</b> Graphics with base R</a></li>
+<li class="chapter" data-level="7.2" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#graphics-with-ggplot2"><i class="fa fa-check"></i><b>7.2</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#some-ggplot-tricks"><i class="fa fa-check"></i><b>7.2.1</b> Some ggplot tricks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="real-life-application.html"><a href="real-life-application.html"><i class="fa fa-check"></i><b>8</b> Real life application</a></li>
+<li class="chapter" data-level="9" data-path="software-development-concepts.html"><a href="software-development-concepts.html"><i class="fa fa-check"></i><b>9</b> Software development concepts</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="software-development-concepts.html"><a href="software-development-concepts.html#good-coding-practices"><i class="fa fa-check"></i><b>9.1</b> Good coding practices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="software-development-concepts.html"><a href="software-development-concepts.html#script-structure"><i class="fa fa-check"></i><b>9.1.1</b> Script structure</a></li>
+<li class="chapter" data-level="9.1.2" data-path="software-development-concepts.html"><a href="software-development-concepts.html#functions-1"><i class="fa fa-check"></i><b>9.1.2</b> Functions</a></li>
+<li class="chapter" data-level="9.1.3" data-path="software-development-concepts.html"><a href="software-development-concepts.html#external-packages"><i class="fa fa-check"></i><b>9.1.3</b> External packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="software-development-concepts.html"><a href="software-development-concepts.html#debugging-and-troubleshooting"><i class="fa fa-check"></i><b>9.2</b> Debugging and troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="11" data-path="solutions-data-types.html"><a href="solutions-data-types.html"><i class="fa fa-check"></i><b>11</b> Solutions || Data Types</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="solutions-data-types.html"><a href="solutions-data-types.html#vectors-1"><i class="fa fa-check"></i><b>11.1</b> Vectors</a></li>
+<li class="chapter" data-level="11.2" data-path="solutions-data-types.html"><a href="solutions-data-types.html#matrices-1"><i class="fa fa-check"></i><b>11.2</b> Matrices</a></li>
+<li class="chapter" data-level="11.3" data-path="solutions-data-types.html"><a href="solutions-data-types.html#lists-1"><i class="fa fa-check"></i><b>11.3</b> Lists</a></li>
+<li class="chapter" data-level="11.4" data-path="solutions-data-types.html"><a href="solutions-data-types.html#data-frames-1"><i class="fa fa-check"></i><b>11.4</b> Data frames</a></li>
+<li class="chapter" data-level="11.5" data-path="solutions-data-types.html"><a href="solutions-data-types.html#coercion-1"><i class="fa fa-check"></i><b>11.5</b> Coercion</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html"><i class="fa fa-check"></i><b>12</b> Solutions || Basic Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html#writing-data"><i class="fa fa-check"></i><b>12.1</b> Writing data</a></li>
+<li class="chapter" data-level="12.2" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html#exploring-data-frames-1"><i class="fa fa-check"></i><b>12.2</b> Exploring data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="solutions-adv.-data-manipulation.html"><a href="solutions-adv.-data-manipulation.html"><i class="fa fa-check"></i><b>13</b> Solutions || Adv. Data Manipulation</a></li>
+<li class="chapter" data-level="14" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html"><i class="fa fa-check"></i><b>14</b> Solutions || Medical Data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#clinics-included"><i class="fa fa-check"></i><b>14.1</b> Clinics included</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-clinics"><i class="fa fa-check"></i><b>14.1.1</b> Number of clinics</a></li>
+<li class="chapter" data-level="14.1.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-valid-tests"><i class="fa fa-check"></i><b>14.1.2</b> Number of valid tests</a></li>
+<li class="chapter" data-level="14.1.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#testing-trend-over-time"><i class="fa fa-check"></i><b>14.1.3</b> Testing trend over time</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-positive-tests"><i class="fa fa-check"></i><b>14.2</b> Number of positive tests</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-positive-tests-in-the-first-100-days"><i class="fa fa-check"></i><b>14.2.1</b> Number of positive tests in the first 100 days</a></li>
+<li class="chapter" data-level="14.2.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#tests-by-age-group"><i class="fa fa-check"></i><b>14.2.2</b> Tests by age group</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
+<li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="solutions-medical-data" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Solutions || Medical Data<a href="solutions-medical-data.html#solutions-medical-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="solutions-medical-data.html#cb416-1" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(ggplot2)) </span>
+<span id="cb416-2"><a href="solutions-medical-data.html#cb416-2" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(medicaldata))</span>
+<span id="cb416-3"><a href="solutions-medical-data.html#cb416-3" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb416-4"><a href="solutions-medical-data.html#cb416-4" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(tidyr))</span></code></pre></div>
+<p>Use the <code>covid_testing</code> data set and everything you’ve learned so far to answer the following questions:</p>
+<div id="clinics-included" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Clinics included<a href="solutions-medical-data.html#clinics-included" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>How many clinics participated in the study, and how many valid tests were performed on each one? Did the testing trend vary over time?</strong></p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="solutions-medical-data.html#cb417-1" tabindex="-1"></a>covid<span class="ot">&lt;-</span>covid_testing</span></code></pre></div>
+<div id="number-of-clinics" class="section level3 hasAnchor" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> Number of clinics<a href="solutions-medical-data.html#number-of-clinics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="solutions-medical-data.html#cb418-1" tabindex="-1"></a>clinics<span class="ot">&lt;-</span> covid <span class="sc">%&gt;%</span></span>
+<span id="cb418-2"><a href="solutions-medical-data.html#cb418-2" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">select</span>(subject_id,clinic_name,result,pan_day) <span class="sc">%&gt;%</span></span>
+<span id="cb418-3"><a href="solutions-medical-data.html#cb418-3" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span>
+<span id="cb418-4"><a href="solutions-medical-data.html#cb418-4" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(clinics<span class="sc">$</span>clinic_name))</span></code></pre></div>
+<pre><code>## [1] 88</code></pre>
+</div>
+<div id="number-of-valid-tests" class="section level3 hasAnchor" number="14.1.2">
+<h3><span class="header-section-number">14.1.2</span> Number of valid tests<a href="solutions-medical-data.html#number-of-valid-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="solutions-medical-data.html#cb420-1" tabindex="-1"></a>clinics <span class="sc">%&gt;%</span></span>
+<span id="cb420-2"><a href="solutions-medical-data.html#cb420-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(result<span class="sc">!=</span><span class="st">&quot;invalid&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb420-3"><a href="solutions-medical-data.html#cb420-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(clinic_name) <span class="sc">%&gt;%</span></span>
+<span id="cb420-4"><a href="solutions-medical-data.html#cb420-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">n_test =</span> <span class="fu">length</span>(clinic_name)) <span class="sc">%&gt;%</span></span>
+<span id="cb420-5"><a href="solutions-medical-data.html#cb420-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(n_test))</span></code></pre></div>
+<pre><code>## # A tibble: 88 × 2
+##    clinic_name        n_test
+##    &lt;chr&gt;               &lt;int&gt;
+##  1 clinical lab         7397
+##  2 emergency dept       3353
+##  3 oncology day hosp     509
+##  4 nicu                  285
+##  5 laboratory            262
+##  6 picu                  258
+##  7 care ntwk             231
+##  8 line clinical lab-    218
+##  9 inpatient ward a      207
+## 10 radiation oncology    161
+## # ℹ 78 more rows</code></pre>
+</div>
+<div id="testing-trend-over-time" class="section level3 hasAnchor" number="14.1.3">
+<h3><span class="header-section-number">14.1.3</span> Testing trend over time<a href="solutions-medical-data.html#testing-trend-over-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="solutions-medical-data.html#cb422-1" tabindex="-1"></a>covid <span class="sc">%&gt;%</span></span>
+<span id="cb422-2"><a href="solutions-medical-data.html#cb422-2" tabindex="-1"></a>  <span class="fu">filter</span>(pan_day<span class="sc">&lt;=</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb422-3"><a href="solutions-medical-data.html#cb422-3" tabindex="-1"></a>  <span class="fu">group_by</span>(pan_day) <span class="sc">%&gt;%</span></span>
+<span id="cb422-4"><a href="solutions-medical-data.html#cb422-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">length</span>(result)) <span class="sc">%&gt;%</span></span>
+<span id="cb422-5"><a href="solutions-medical-data.html#cb422-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>pan_day,<span class="at">y=</span>n))<span class="sc">+</span></span>
+<span id="cb422-6"><a href="solutions-medical-data.html#cb422-6" tabindex="-1"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb422-7"><a href="solutions-medical-data.html#cb422-7" tabindex="-1"></a>    <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb422-8"><a href="solutions-medical-data.html#cb422-8" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Number of tests per day&quot;</span>)<span class="sc">+</span></span>
+<span id="cb422-9"><a href="solutions-medical-data.html#cb422-9" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Pandemic day&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-195-1.png" width="672" /></p>
+</div>
+</div>
+<div id="number-of-positive-tests" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Number of positive tests<a href="solutions-medical-data.html#number-of-positive-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>How many patients tested positive vs negative in the first 100 days of the pandemic? Do you notice any difference with the age of the patients? Hint: You can make two age groups and calculate the percentage each age group in positive vs negative tests.</strong></p>
+<div id="number-of-positive-tests-in-the-first-100-days" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Number of positive tests in the first 100 days<a href="solutions-medical-data.html#number-of-positive-tests-in-the-first-100-days" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="solutions-medical-data.html#cb423-1" tabindex="-1"></a>covid <span class="sc">%&gt;%</span></span>
+<span id="cb423-2"><a href="solutions-medical-data.html#cb423-2" tabindex="-1"></a>  <span class="fu">filter</span>(result<span class="sc">!=</span><span class="st">&quot;invalid&quot;</span> <span class="sc">&amp;</span> pan_day<span class="sc">&lt;=</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb423-3"><a href="solutions-medical-data.html#cb423-3" tabindex="-1"></a>  <span class="fu">group_by</span>(result) <span class="sc">%&gt;%</span></span>
+<span id="cb423-4"><a href="solutions-medical-data.html#cb423-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">length</span>(subject_id))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   result       n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 negative 13225
+## 2 positive   780</code></pre>
+</div>
+<div id="tests-by-age-group" class="section level3 hasAnchor" number="14.2.2">
+<h3><span class="header-section-number">14.2.2</span> Tests by age group<a href="solutions-medical-data.html#tests-by-age-group" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="solutions-medical-data.html#cb425-1" tabindex="-1"></a>tsts_age<span class="ot">&lt;-</span>covid <span class="sc">%&gt;%</span></span>
+<span id="cb425-2"><a href="solutions-medical-data.html#cb425-2" tabindex="-1"></a>            <span class="fu">filter</span>(result<span class="sc">!=</span><span class="st">&quot;invalid&quot;</span> <span class="sc">&amp;</span> pan_day<span class="sc">&lt;=</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb425-3"><a href="solutions-medical-data.html#cb425-3" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">age_group=</span><span class="fu">ifelse</span>(age<span class="sc">&lt;=</span><span class="dv">21</span>,<span class="st">&quot;children&quot;</span>,<span class="st">&quot;adults&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb425-4"><a href="solutions-medical-data.html#cb425-4" tabindex="-1"></a>            <span class="fu">group_by</span>(age_group,result) <span class="sc">%&gt;%</span></span>
+<span id="cb425-5"><a href="solutions-medical-data.html#cb425-5" tabindex="-1"></a>            <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">length</span>(subject_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb425-6"><a href="solutions-medical-data.html#cb425-6" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">percent_total=</span>n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;age_group&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="solutions-medical-data.html#cb427-1" tabindex="-1"></a>tsts_age</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 4
+## # Groups:   age_group [2]
+##   age_group result       n percent_total
+##   &lt;chr&gt;     &lt;chr&gt;    &lt;int&gt;         &lt;dbl&gt;
+## 1 adults    negative  2627         92.1 
+## 2 adults    positive   226          7.92
+## 3 children  negative 10598         95.0 
+## 4 children  positive   554          4.97</code></pre>
+</div>
+</div>
+<div id="processing-times" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Processing times<a href="solutions-medical-data.html#processing-times" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Look at the specimen processing time to receipt, did the sample processing times improve over the first 100 days of the pandemic? Plot the median processing times of each day over the course of the pandemic and then compare the summary statistics of the first 50 vs the last 50 days</strong></p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="solutions-medical-data.html#cb429-1" tabindex="-1"></a>covid <span class="sc">%&gt;%</span></span>
+<span id="cb429-2"><a href="solutions-medical-data.html#cb429-2" tabindex="-1"></a>  <span class="fu">group_by</span>(pan_day) <span class="sc">%&gt;%</span></span>
+<span id="cb429-3"><a href="solutions-medical-data.html#cb429-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">median_col_rec_tat=</span><span class="fu">median</span>(col_rec_tat)) <span class="sc">%&gt;%</span></span>
+<span id="cb429-4"><a href="solutions-medical-data.html#cb429-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">x=</span>pan_day,<span class="at">y=</span>median_col_rec_tat)) <span class="sc">+</span></span>
+<span id="cb429-5"><a href="solutions-medical-data.html#cb429-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb429-6"><a href="solutions-medical-data.html#cb429-6" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="solutions-medical-data.html#cb430-1" tabindex="-1"></a>covid <span class="sc">%&gt;%</span></span>
+<span id="cb430-2"><a href="solutions-medical-data.html#cb430-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pan_day_group=</span><span class="fu">ifelse</span>(pan_day<span class="sc">&lt;</span><span class="dv">50</span>,<span class="st">&quot;first_50&quot;</span>,<span class="st">&quot;last_50&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb430-3"><a href="solutions-medical-data.html#cb430-3" tabindex="-1"></a>  <span class="fu">group_by</span>(pan_day_group) <span class="sc">%&gt;%</span></span>
+<span id="cb430-4"><a href="solutions-medical-data.html#cb430-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">mean_col_rec_tat=</span><span class="fu">mean</span>(col_rec_tat),</span>
+<span id="cb430-5"><a href="solutions-medical-data.html#cb430-5" tabindex="-1"></a>                   <span class="at">median_col_rec_tat=</span><span class="fu">median</span>(col_rec_tat),</span>
+<span id="cb430-6"><a href="solutions-medical-data.html#cb430-6" tabindex="-1"></a>                   <span class="at">min_col_rec_tat=</span><span class="fu">min</span>(col_rec_tat),</span>
+<span id="cb430-7"><a href="solutions-medical-data.html#cb430-7" tabindex="-1"></a>                   <span class="at">max_col_rec_tat=</span><span class="fu">max</span>(col_rec_tat))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   pan_day_group mean_col_rec_tat median_col_rec_tat min_col_rec_tat max_col_rec_tat
+##   &lt;chr&gt;                    &lt;dbl&gt;              &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;
+## 1 first_50                  3.26                1.9               0            865.
+## 2 last_50                   9.41                1.9               0          61370.</code></pre>
+</div>
+<div id="bonus---viral-load" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Bonus - Viral load<a href="solutions-medical-data.html#bonus---viral-load" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Higher viral loads are detected in less PCR cycles.</strong></p>
+<p><strong>What can you observe about the viral load of positive vs negative samples.</strong></p>
+<p><strong>Do you notice anything differences in viral load across ages in the positive samples?</strong></p>
+<p><strong>Hint: Also split the data into two age groups and try using geom_boxplot()</strong></p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="solutions-medical-data.html#cb432-1" tabindex="-1"></a><span class="fu">ggplot</span>(covid,<span class="fu">aes</span>(<span class="at">y=</span>ct_result,<span class="at">x=</span>result,<span class="at">color=</span>result))<span class="sc">+</span></span>
+<span id="cb432-2"><a href="solutions-medical-data.html#cb432-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-200-1.png" width="672" /></p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="solutions-medical-data.html#cb433-1" tabindex="-1"></a>covid <span class="sc">%&gt;%</span></span>
+<span id="cb433-2"><a href="solutions-medical-data.html#cb433-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group=</span><span class="fu">ifelse</span>(age<span class="sc">&lt;=</span><span class="dv">21</span>,<span class="st">&quot;children&quot;</span>,<span class="st">&quot;adults&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb433-3"><a href="solutions-medical-data.html#cb433-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(.,<span class="fu">aes</span>(<span class="at">y=</span>ct_result,<span class="at">x=</span>result,<span class="at">color=</span>age_group))<span class="sc">+</span></span>
+<span id="cb433-4"><a href="solutions-medical-data.html#cb433-4" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="solutions-adv.-data-manipulation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

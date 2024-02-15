@@ -41,6 +41,7 @@ Comments are embedded into your code to help explain its purpose. This is extrem
 
 ```{r}
 # This is a comment line 
+# print('hello world')
 ```
 
 ## Arithmetic Operations
@@ -51,7 +52,7 @@ knitr::include_graphics("images/ArithmeticOperators.png")
 
 ```{r}
 # Additon
-2+2
+2+100000
 ```
 
 ```{r}
@@ -66,7 +67,7 @@ knitr::include_graphics("images/ArithmeticOperators.png")
 
 ```{r}
 # Division
-90/3
+90/((3*5) + 4)
 ```
 
 ```{r}
@@ -100,10 +101,11 @@ print(var2)
 
 ```{r}
 # It is also possible to use the '=' sign, but is NOT a good practice
-var1 = 12
+var1 = 13
 var2 = "hello world"
 var1
 var2
+rm("var1")
 ```
 
 ## Logical operators
@@ -126,6 +128,8 @@ var1 == var2
 ```{r}
 # Less than or equal to
 var1 <= var2
+
+var1 != var2
 ```
 
 ```{r}
@@ -157,6 +161,11 @@ We can test if a variable is contained in another object
 2.  Bonus: Is there a way to store the result after checking the number?
 
 ```{r}
+x <- 10
+x > 5
+
+y <- x > 5
+print(y)
 
 ```
 
@@ -224,8 +233,8 @@ x
 Creating a numeric vector with a sequence of numbers
 
 ```{r}
-x <- seq(1,10,1)
-x
+# x <- seq(1,10,1)
+# x
 
 x <- seq(1,10,2)
 x
@@ -359,6 +368,7 @@ max(x)
 ```
 
 ```{r}
+x <- seq(1,10,1)
 mean(x) 
 median(x) 
 sd(x)
@@ -412,7 +422,7 @@ If one of the vectors is smaller than the other, operations are still possible. 
 
 ```{r}
 x<-1:10
-y<-c(1,2)
+y<-c(1,2,3)
 x+y
 ```
 
@@ -450,6 +460,10 @@ Using a vector of indices
 ```{r}
 x[1:12] # The first 12 numbers
 x[c(1,5,6,8,9,13)] # Specific positions only
+
+names(x) <- letters[1:length(x)]
+
+x[c('a','c','d')]
 ```
 
 Using a logical vector
@@ -457,11 +471,11 @@ Using a logical vector
 ```{r}
 # Only numbers that are less than or equal to 10
 x<10
-x[x<=10] 
-
-# Only even numbers 
-x%%2 == 0
-x[x%%2 == 0]
+x[x>95] 
+# 
+# # Only even numbers 
+# x%%2 == 0
+# x[x%%2 == 0]
 ```
 
 ```{r}
@@ -500,7 +514,7 @@ knitr::include_graphics("images/Lists.png")
 Creating lists with different data types
 
 ```{r}
-l <- list(10, "hello", TRUE)
+l <- list(1:10, list("hello",'hi'), TRUE)
 l
 ```
 
@@ -512,6 +526,8 @@ l<-list(title = "Numbers",
         logic = TRUE )
 l
 names(l)
+
+l$numbers
 ```
 
 ### Indexing and subsetting
@@ -535,12 +551,18 @@ l<-list(sample(1:100,10),
         sample(1:100,10),
         sample(1:100,10))
 names(l)<-c("r1","r2","r3")
+l
 ```
 
 Performing operations on all elements of the list using `lapply`
 
 ```{r}
 lsums<-lapply(l,sum)
+lsums
+
+lsums <- lapply(l,function(a){
+  sum(a)^2
+})
 lsums
 ```
 
@@ -614,7 +636,7 @@ typeof(m)
 Creating a matrix from a vector of numbers
 
 ```{r}
-m<-matrix(1:10, ncol=2, nrow=5)
+m<-matrix(1:5, ncol=2, nrow=5)
 m
 ```
 
@@ -672,6 +694,7 @@ Re-naming columns
 ```{r}
 colnames(df)[2]<-"lowercase"
 head(df)
+View(df)
 ```
 
 ### Indexing and sub-setting
@@ -681,6 +704,8 @@ df$numbers
 df["numbers"]
 df[1,]
 df[,1]
+
+df[3,3]
 ```
 
 ## Coercion
@@ -704,10 +729,14 @@ typeof(df)
 
 ## Hands on: Data types
 
--   Make a matrix with the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behavior? Once you have figured it out, try to change the default. (hint: read the documentation for `matrix`).\
+-   Make a matrix with the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behavior?
 -   Create a list of length two containing a character vector for each of the data sections: (1) Data types and (2) Data structures. Populate each character vector with the names of the data types and data structures, respectively.\
 -   There are several subtly different ways to call variables, observations and elements from data frames. Try them all and discuss with your team what they return. (Hint, use the function `typeof()`)\
 -   Take the list you created in 3 and coerce it into a data frame. Then change the names of the columns to "dataTypes" and "dataStructures".
+
+```{r}
+
+```
 
 ```{r}
 
@@ -800,7 +829,9 @@ knitr::include_graphics("images/Functions.png")
 #Example Function that calculates mean
 
 new_mean <- function(values){
-  return(sum(values)/length(values))
+  print(values)
+  #return()
+  sum(values)/length(values)
 }
 
 x <- 1:5
@@ -841,10 +872,12 @@ BiocManager::install("DESeq2")
 If you want to install the development version of a package, or you are installing something that is only available on GitHub you can use `devtools`
 
 ```{r,eval=F}
-install_github('andreacirilloac/updateR')
+devtools::install_github('andreacirilloac/updateR')
 ```
 
-## 
+```{r}
+library(ggplot2)
+```
 
 ## Detour \|\| Seeking help
 
@@ -889,7 +922,6 @@ For this section we will use the package `gapminder` that we installed earlier.
 ```{r}
 library(gapminder)
 dim(gapminder)
-
 ```
 
 View the data frame
@@ -899,7 +931,7 @@ View(gapminder)
 ```
 
 ```{r}
-summary(gapminder$country)
+summary(gapminder$lifeExp)
 ```
 
 ## Reading/writing data
@@ -946,6 +978,7 @@ Reading data from a file
 ```{r}
 africa<-read.csv("../data/gapminder_africa.csv",sep = ",",header = T)
 class(africa$continent)
+head(africa)
 ```
 
 ```{r}
@@ -985,8 +1018,11 @@ Individually adding columns
 ```{r}
 mean_children <- sample(1:10,nrow(aust),replace = TRUE)
 aust$mean_children <- mean_children
-head(aust)
 
+#head(aust)
+aust$GDP <- aust$pop * aust$gdpPercap
+
+head(aust)
 ```
 
 ```{r}
@@ -1261,6 +1297,8 @@ gdp_pop_ext <-gapminder %>%
                                  sd_pop = sd(pop),
                                  mean_gdp_billion = mean(gdp_billion),
                                  sd_gdp_billion = sd(gdp_billion)) 
+
+gdp_pop_ext
 ```
 
 ## Hands-on advanced data manipulation
@@ -1274,7 +1312,7 @@ gdp_pop_ext <-gapminder %>%
 ## Graphics with base R
 
 ```{r}
-hist(gapminder$lifeExp,xlab="Life expectancy")
+hist(gapminder$lifeExp,xlab="Life expectancy",main = 'Histogram of Life Expectancy')
 ```
 
 Arrange figures into multiple panels with `par`
@@ -1308,7 +1346,7 @@ df<-gapminder %>%
       dplyr::mutate(country = as.character(country)) %>%
       dplyr::filter(country %in% c("Switzerland","Australia","Zimbabwe","India"))
       
-ggplot(df,aes(x=year,y=lifeExp,color=country))+
+ggplot(df,aes(x=year,y=lifeExp,color=country)) +
   geom_point()+
   geom_line()
 
