@@ -23,8 +23,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-<object data="../slides/MiCM_IntroToR.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="../slides/MiCM_IntroToR.pdf">
+<object data="./MiCM_IntroToR.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="./MiCM_IntroToR.pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/aosakwe/MiCM_IntroToRProgramming/slides/MiCM_IntroToR.pdf">Download PDF</a>.</p>
     </embed>
 </object>
