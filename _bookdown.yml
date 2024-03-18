@@ -1,7 +1,5 @@
 ---
-output:
-  bookdown::gitbook:
-    toc: true
-    highlight: tango
+book_filename: "./scripts/main.Rmd"
+delete_merged_file: false
 ---
 
