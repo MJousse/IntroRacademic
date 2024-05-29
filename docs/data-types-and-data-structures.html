@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data types and data structures | Intro to R</title>
+  <meta name="description" content="3 Data types and data structures | Intro to R" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data types and data structures | Intro to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data types and data structures | Intro to R" />
+  
+  
+  
+
+
+
+<meta name="date" content="2024-02-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="control-structures-functions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro to R Bookdown</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-markdown-file"><i class="fa fa-check"></i><b>2.1</b> R Markdown File</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.2</b> <strong>Learning objectives</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#comments"><i class="fa fa-check"></i><b>2.3</b> <strong>Comments</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#arithmetic-operations"><i class="fa fa-check"></i><b>2.4</b> Arithmetic Operations</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#syntax"><i class="fa fa-check"></i><b>2.5</b> Syntax</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#creating-variables"><i class="fa fa-check"></i><b>2.6</b> Creating variables</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#printing-variables"><i class="fa fa-check"></i><b>2.7</b> Printing Variables</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical-operators"><i class="fa fa-check"></i><b>2.8</b> Logical operators</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise"><i class="fa fa-check"></i><b>2.9</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html"><i class="fa fa-check"></i><b>3</b> Data types and data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data Types</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#numeric"><i class="fa fa-check"></i><b>3.3.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#integer"><i class="fa fa-check"></i><b>3.3.2</b> Integer</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#logical"><i class="fa fa-check"></i><b>3.3.3</b> Logical</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector-attributes"><i class="fa fa-check"></i><b>3.3.5</b> Vector attributes</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions"><i class="fa fa-check"></i><b>3.3.6</b> Built-in functions</a></li>
+<li class="chapter" data-level="3.3.7" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector-operations"><i class="fa fa-check"></i><b>3.3.7</b> Vector Operations</a></li>
+<li class="chapter" data-level="3.3.8" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#recycling"><i class="fa fa-check"></i><b>3.3.8</b> Recycling</a></li>
+<li class="chapter" data-level="3.3.9" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-subsetting"><i class="fa fa-check"></i><b>3.3.9</b> Indexing and subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#lists"><i class="fa fa-check"></i><b>3.4</b> Lists</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-subsetting-1"><i class="fa fa-check"></i><b>3.4.1</b> Indexing and subsetting</a></li>
+<li class="chapter" data-level="3.4.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-1"><i class="fa fa-check"></i><b>3.4.2</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#factors"><i class="fa fa-check"></i><b>3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#exercise-3"><i class="fa fa-check"></i><b>3.6</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-2"><i class="fa fa-check"></i><b>3.6.1</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#matrices"><i class="fa fa-check"></i><b>3.7</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#attributes"><i class="fa fa-check"></i><b>3.7.1</b> Attributes</a></li>
+<li class="chapter" data-level="3.7.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-3"><i class="fa fa-check"></i><b>3.7.2</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-frames"><i class="fa fa-check"></i><b>3.8</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-sub-setting"><i class="fa fa-check"></i><b>3.8.1</b> Indexing and sub-setting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#coercion"><i class="fa fa-check"></i><b>3.9</b> Coercion</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#hands-on-data-types"><i class="fa fa-check"></i><b>3.10</b> Hands on: Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="control-structures-functions.html"><a href="control-structures-functions.html"><i class="fa fa-check"></i><b>4</b> Control Structures &amp; Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="control-structures-functions.html"><a href="control-structures-functions.html#learning-objectives-1"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="control-structures-functions.html"><a href="control-structures-functions.html#conditional-statements"><i class="fa fa-check"></i><b>4.2</b> Conditional Statements</a></li>
+<li class="chapter" data-level="4.3" data-path="control-structures-functions.html"><a href="control-structures-functions.html#for-while-loops"><i class="fa fa-check"></i><b>4.3</b> For &amp; While Loops</a></li>
+<li class="chapter" data-level="4.4" data-path="control-structures-functions.html"><a href="control-structures-functions.html#functions"><i class="fa fa-check"></i><b>4.4</b> Functions</a></li>
+<li class="chapter" data-level="4.5" data-path="control-structures-functions.html"><a href="control-structures-functions.html#installing-packages"><i class="fa fa-check"></i><b>4.5</b> Installing packages</a></li>
+<li class="chapter" data-level="4.6" data-path="control-structures-functions.html"><a href="control-structures-functions.html#detour-seeking-help"><i class="fa fa-check"></i><b>4.6</b> Detour || Seeking help</a></li>
+<li class="chapter" data-level="4.7" data-path="control-structures-functions.html"><a href="control-structures-functions.html#exercise-5"><i class="fa fa-check"></i><b>4.7</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="control-structures-functions.html"><a href="control-structures-functions.html#section"><i class="fa fa-check"></i><b>4.7.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>5</b> Basic data manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#readingwriting-data"><i class="fa fa-check"></i><b>5.1</b> Reading/writing data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#text-files"><i class="fa fa-check"></i><b>5.1.1</b> Text files</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#r-objects"><i class="fa fa-check"></i><b>5.1.2</b> R objects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#exploring-data-frames"><i class="fa fa-check"></i><b>5.2</b> Exploring data frames</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-columns-and-rows"><i class="fa fa-check"></i><b>5.2.1</b> Adding columns and rows</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#removing-columns-and-rows"><i class="fa fa-check"></i><b>5.2.2</b> Removing columns and rows</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#applying-filters"><i class="fa fa-check"></i><b>5.2.3</b> Applying filters</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#editing-specific-elements"><i class="fa fa-check"></i><b>5.2.4</b> Editing specific elements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#hands-on-basic-data-manipulation"><i class="fa fa-check"></i><b>5.3</b> Hands-on: basic data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Advanced data manipulation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#manipulation-with-dplyr"><i class="fa fa-check"></i><b>6.1</b> Manipulation with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#introducing-pipes"><i class="fa fa-check"></i><b>6.1.1</b> Introducing pipes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-select"><i class="fa fa-check"></i><b>6.1.2</b> Using <code>select()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-filter"><i class="fa fa-check"></i><b>6.1.3</b> Using <code>filter()</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-group_by"><i class="fa fa-check"></i><b>6.1.4</b> Using <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.1.5" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-summarize"><i class="fa fa-check"></i><b>6.1.5</b> Using <code>summarize()</code></a></li>
+<li class="chapter" data-level="6.1.6" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-mutate"><i class="fa fa-check"></i><b>6.1.6</b> Using <code>mutate()</code></a></li>
+<li class="chapter" data-level="6.1.7" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#putting-them-all-together"><i class="fa fa-check"></i><b>6.1.7</b> Putting them all together</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#hands-on-advanced-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Hands-on advanced data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html"><i class="fa fa-check"></i><b>7</b> Generating visual outputs</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#graphics-with-base-r"><i class="fa fa-check"></i><b>7.1</b> Graphics with base R</a></li>
+<li class="chapter" data-level="7.2" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#graphics-with-ggplot2"><i class="fa fa-check"></i><b>7.2</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#some-ggplot-tricks"><i class="fa fa-check"></i><b>7.2.1</b> Some ggplot tricks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="real-life-application.html"><a href="real-life-application.html"><i class="fa fa-check"></i><b>8</b> Real life application</a></li>
+<li class="chapter" data-level="9" data-path="software-development-concepts.html"><a href="software-development-concepts.html"><i class="fa fa-check"></i><b>9</b> Software development concepts</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="software-development-concepts.html"><a href="software-development-concepts.html#good-coding-practices"><i class="fa fa-check"></i><b>9.1</b> Good coding practices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="software-development-concepts.html"><a href="software-development-concepts.html#script-structure"><i class="fa fa-check"></i><b>9.1.1</b> Script structure</a></li>
+<li class="chapter" data-level="9.1.2" data-path="software-development-concepts.html"><a href="software-development-concepts.html#functions-1"><i class="fa fa-check"></i><b>9.1.2</b> Functions</a></li>
+<li class="chapter" data-level="9.1.3" data-path="software-development-concepts.html"><a href="software-development-concepts.html#external-packages"><i class="fa fa-check"></i><b>9.1.3</b> External packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="software-development-concepts.html"><a href="software-development-concepts.html#debugging-and-troubleshooting"><i class="fa fa-check"></i><b>9.2</b> Debugging and troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="11" data-path="solutions-data-types.html"><a href="solutions-data-types.html"><i class="fa fa-check"></i><b>11</b> Solutions || Data Types</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="solutions-data-types.html"><a href="solutions-data-types.html#vectors-1"><i class="fa fa-check"></i><b>11.1</b> Vectors</a></li>
+<li class="chapter" data-level="11.2" data-path="solutions-data-types.html"><a href="solutions-data-types.html#matrices-1"><i class="fa fa-check"></i><b>11.2</b> Matrices</a></li>
+<li class="chapter" data-level="11.3" data-path="solutions-data-types.html"><a href="solutions-data-types.html#lists-1"><i class="fa fa-check"></i><b>11.3</b> Lists</a></li>
+<li class="chapter" data-level="11.4" data-path="solutions-data-types.html"><a href="solutions-data-types.html#data-frames-1"><i class="fa fa-check"></i><b>11.4</b> Data frames</a></li>
+<li class="chapter" data-level="11.5" data-path="solutions-data-types.html"><a href="solutions-data-types.html#coercion-1"><i class="fa fa-check"></i><b>11.5</b> Coercion</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html"><i class="fa fa-check"></i><b>12</b> Solutions || Basic Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html#writing-data"><i class="fa fa-check"></i><b>12.1</b> Writing data</a></li>
+<li class="chapter" data-level="12.2" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html#exploring-data-frames-1"><i class="fa fa-check"></i><b>12.2</b> Exploring data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="solutions-adv.-data-manipulation.html"><a href="solutions-adv.-data-manipulation.html"><i class="fa fa-check"></i><b>13</b> Solutions || Adv. Data Manipulation</a></li>
+<li class="chapter" data-level="14" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html"><i class="fa fa-check"></i><b>14</b> Solutions || Medical Data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#clinics-included"><i class="fa fa-check"></i><b>14.1</b> Clinics included</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-clinics"><i class="fa fa-check"></i><b>14.1.1</b> Number of clinics</a></li>
+<li class="chapter" data-level="14.1.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-valid-tests"><i class="fa fa-check"></i><b>14.1.2</b> Number of valid tests</a></li>
+<li class="chapter" data-level="14.1.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#testing-trend-over-time"><i class="fa fa-check"></i><b>14.1.3</b> Testing trend over time</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-positive-tests"><i class="fa fa-check"></i><b>14.2</b> Number of positive tests</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-positive-tests-in-the-first-100-days"><i class="fa fa-check"></i><b>14.2.1</b> Number of positive tests in the first 100 days</a></li>
+<li class="chapter" data-level="14.2.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#tests-by-age-group"><i class="fa fa-check"></i><b>14.2.2</b> Tests by age group</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
+<li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="workshop-slides.html"><a href="workshop-slides.html"><i class="fa fa-check"></i><b>15</b> Workshop Slides</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-types-and-data-structures" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Data types and data structures<a href="data-types-and-data-structures.html#data-types-and-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Learning objectives</strong></p>
+<ol style="list-style-type: decimal">
+<li>Understand the differences between classes, objects and data types in R</li>
+<li>Create objects of different types</li>
+<li>Subset and index objects</li>
+<li>Learn and use vectorized operations</li>
+</ol>
+<div id="data-types" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data Types<a href="data-types-and-data-structures.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/DataTypes.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="data-structures" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Data Structures<a href="data-types-and-data-structures.html#data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/DataStructures.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="images/1D_DataStructures.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="vectors" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Vectors<a href="data-types-and-data-structures.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Key points:<br />
+- Can only contain objects of the same class<br />
+- Most basic type of R object<br />
+- Variables are vectors</p>
+<p><img src="images/Vectors.png" width="80%" style="display: block; margin: auto;" /></p>
+<div id="numeric" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Numeric<a href="data-types-and-data-structures.html#numeric" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>They store numbers as <code>double</code>, and it is stored with decimals. The term double refers to the number of bytes required to store it. Each double is accurate up to 16 significant digits.</p>
+<p>Creating a numeric vector using <code>c()</code></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-types-and-data-structures.html#cb46-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>)</span>
+<span id="cb46-2"><a href="data-types-and-data-structures.html#cb46-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 0.3 0.1</code></pre>
+<p>Using the <code>vector()</code> function</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-types-and-data-structures.html#cb48-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;numeric&quot;</span>,<span class="at">length =</span> <span class="dv">10</span>)</span>
+<span id="cb48-2"><a href="data-types-and-data-structures.html#cb48-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
+<p>Using the <code>numeric()</code> function</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-types-and-data-structures.html#cb50-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="at">length =</span> <span class="dv">10</span>)</span>
+<span id="cb50-2"><a href="data-types-and-data-structures.html#cb50-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
+<p>Creating a numeric vector with a sequence of numbers</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-types-and-data-structures.html#cb52-1" tabindex="-1"></a><span class="co"># x &lt;- seq(1,10,1)</span></span>
+<span id="cb52-2"><a href="data-types-and-data-structures.html#cb52-2" tabindex="-1"></a><span class="co"># x</span></span>
+<span id="cb52-3"><a href="data-types-and-data-structures.html#cb52-3" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="data-types-and-data-structures.html#cb52-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>)</span>
+<span id="cb52-5"><a href="data-types-and-data-structures.html#cb52-5" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-types-and-data-structures.html#cb54-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">10</span>)</span>
+<span id="cb54-2"><a href="data-types-and-data-structures.html#cb54-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 2 2 2 2 2 2 2 2 2 2</code></pre>
+<p>Check length of vector with <code>length()</code></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-types-and-data-structures.html#cb56-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 2 2 2 2 2 2 2 2 2 2</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-types-and-data-structures.html#cb58-1" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-types-and-data-structures.html#cb60-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb60-2"><a href="data-types-and-data-structures.html#cb60-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 2 2 2 2 2</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-types-and-data-structures.html#cb62-1" tabindex="-1"></a><span class="fu">length</span>(y)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-types-and-data-structures.html#cb64-1" tabindex="-1"></a><span class="fu">length</span>(x) <span class="sc">==</span> <span class="fu">length</span>(y)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="integer" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Integer<a href="data-types-and-data-structures.html#integer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>They store numbers that can be written without a decimal component.</p>
+<p>Creating an integer vector using <code>c()</code></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-types-and-data-structures.html#cb66-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(1L,2L,3L,4L,5L)  </span>
+<span id="cb66-2"><a href="data-types-and-data-structures.html#cb66-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>Creating an integer vector of a sequences of numbers</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-types-and-data-structures.html#cb68-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb68-2"><a href="data-types-and-data-structures.html#cb68-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div id="logical" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Logical<a href="data-types-and-data-structures.html#logical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Creating a logical vector with <code>c()</code></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-types-and-data-structures.html#cb70-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,T,F)</span>
+<span id="cb70-2"><a href="data-types-and-data-structures.html#cb70-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE FALSE</code></pre>
+<p>Creating a logical vector with <code>vector()</code></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-types-and-data-structures.html#cb72-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;logical&quot;</span>,<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb72-2"><a href="data-types-and-data-structures.html#cb72-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Creating a logical vector using <code>logical()</code></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-types-and-data-structures.html#cb74-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">logical</span>(<span class="at">length =</span> <span class="dv">10</span>)</span>
+<span id="cb74-2"><a href="data-types-and-data-structures.html#cb74-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div id="character" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Character<a href="data-types-and-data-structures.html#character" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-types-and-data-structures.html#cb76-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</span>
+<span id="cb76-2"><a href="data-types-and-data-structures.html#cb76-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-types-and-data-structures.html#cb78-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;character&quot;</span>,<span class="at">length=</span><span class="dv">10</span>)</span>
+<span id="cb78-2"><a href="data-types-and-data-structures.html#cb78-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-types-and-data-structures.html#cb80-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">character</span>(<span class="at">length =</span> <span class="dv">3</span>)</span>
+<span id="cb80-2"><a href="data-types-and-data-structures.html#cb80-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<p>Some useful functions to modify strings</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-types-and-data-structures.html#cb82-1" tabindex="-1"></a><span class="fu">tolower</span>(LETTERS)</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-types-and-data-structures.html#cb84-1" tabindex="-1"></a><span class="fu">toupper</span>(letters)</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-types-and-data-structures.html#cb86-1" tabindex="-1"></a><span class="fu">paste</span>(letters,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(letters),<span class="at">sep=</span><span class="st">&quot;_&quot;</span>) <span class="co"># Note the implicit coercion</span></span></code></pre></div>
+<pre><code>##  [1] &quot;a_1&quot;  &quot;b_2&quot;  &quot;c_3&quot;  &quot;d_4&quot;  &quot;e_5&quot;  &quot;f_6&quot;  &quot;g_7&quot;  &quot;h_8&quot;  &quot;i_9&quot;  &quot;j_10&quot; &quot;k_11&quot; &quot;l_12&quot; &quot;m_13&quot; &quot;n_14&quot; &quot;o_15&quot;
+## [16] &quot;p_16&quot; &quot;q_17&quot; &quot;r_18&quot; &quot;s_19&quot; &quot;t_20&quot; &quot;u_21&quot; &quot;v_22&quot; &quot;w_23&quot; &quot;x_24&quot; &quot;y_25&quot; &quot;z_26&quot;</code></pre>
+</div>
+<div id="vector-attributes" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> Vector attributes<a href="data-types-and-data-structures.html#vector-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The elements of a vector can have names</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-types-and-data-structures.html#cb88-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb88-2"><a href="data-types-and-data-structures.html#cb88-2" tabindex="-1"></a><span class="fu">names</span>(x)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;one&quot;</span>,<span class="st">&quot;two&quot;</span>,<span class="st">&quot;three&quot;</span>,<span class="st">&quot;four&quot;</span>,<span class="st">&quot;five&quot;</span>)</span>
+<span id="cb88-3"><a href="data-types-and-data-structures.html#cb88-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##   one   two three  four  five 
+##     1     2     3     4     5</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-types-and-data-structures.html#cb90-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">logical</span>(<span class="at">length =</span> <span class="dv">4</span>)</span>
+<span id="cb90-2"><a href="data-types-and-data-structures.html#cb90-2" tabindex="-1"></a><span class="fu">names</span>(x)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;F1&quot;</span>,<span class="st">&quot;F2&quot;</span>,<span class="st">&quot;F3&quot;</span>,<span class="st">&quot;F4&quot;</span>)</span>
+<span id="cb90-3"><a href="data-types-and-data-structures.html#cb90-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##    F1    F2    F3    F4 
+## FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div id="built-in-functions" class="section level3 hasAnchor" number="3.3.6">
+<h3><span class="header-section-number">3.3.6</span> Built-in functions<a href="data-types-and-data-structures.html#built-in-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>To inspect the contents of a vector</strong></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-types-and-data-structures.html#cb92-1" tabindex="-1"></a><span class="fu">is.vector</span>(x) <span class="co"># Check if it is a vector</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-types-and-data-structures.html#cb94-1" tabindex="-1"></a><span class="fu">is.na</span>(x) <span class="co"># Check if it is empty</span></span></code></pre></div>
+<pre><code>##    F1    F2    F3    F4 
+## FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-types-and-data-structures.html#cb96-1" tabindex="-1"></a><span class="fu">is.null</span>(x) <span class="co"># Check if it is NULL</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-types-and-data-structures.html#cb98-1" tabindex="-1"></a><span class="fu">is.numeric</span>(x) <span class="co"># Check if it is numeric</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-types-and-data-structures.html#cb100-1" tabindex="-1"></a><span class="fu">is.logical</span>(x) <span class="co"># Check if it is logical</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-types-and-data-structures.html#cb102-1" tabindex="-1"></a><span class="fu">is.character</span>(x) <span class="co"># Check if it is character</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p><strong>To know what kind of vector you are working with</strong></p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-types-and-data-structures.html#cb104-1" tabindex="-1"></a><span class="fu">class</span>(x) <span class="co"># Atomic class type</span></span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-types-and-data-structures.html#cb106-1" tabindex="-1"></a><span class="fu">typeof</span>(x) <span class="co"># Object type or data structure (matrix, list, array...)</span></span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-types-and-data-structures.html#cb108-1" tabindex="-1"></a><span class="fu">str</span>(x)</span></code></pre></div>
+<pre><code>##  Named logi [1:4] FALSE FALSE FALSE FALSE
+##  - attr(*, &quot;names&quot;)= chr [1:4] &quot;F1&quot; &quot;F2&quot; &quot;F3&quot; &quot;F4&quot;</code></pre>
+<p><strong>To know more about the data contained in the vector</strong></p>
+<p>Mathematical operations</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-types-and-data-structures.html#cb110-1" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-types-and-data-structures.html#cb112-1" tabindex="-1"></a><span class="fu">min</span>(x) </span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-types-and-data-structures.html#cb114-1" tabindex="-1"></a><span class="fu">max</span>(x)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-types-and-data-structures.html#cb116-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
+<span id="cb116-2"><a href="data-types-and-data-structures.html#cb116-2" tabindex="-1"></a><span class="fu">mean</span>(x) </span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-types-and-data-structures.html#cb118-1" tabindex="-1"></a><span class="fu">median</span>(x) </span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-types-and-data-structures.html#cb120-1" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div>
+<pre><code>## [1] 3.02765</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-types-and-data-structures.html#cb122-1" tabindex="-1"></a><span class="fu">log</span>(x) </span></code></pre></div>
+<pre><code>##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101 2.0794415 2.1972246 2.3025851</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-types-and-data-structures.html#cb124-1" tabindex="-1"></a><span class="fu">exp</span>(x)</span></code></pre></div>
+<pre><code>##  [1]     2.718282     7.389056    20.085537    54.598150   148.413159   403.428793  1096.633158  2980.957987
+##  [9]  8103.083928 22026.465795</code></pre>
+<p>Other operations</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-types-and-data-structures.html#cb126-1" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="data-types-and-data-structures.html#cb128-1" tabindex="-1"></a><span class="fu">table</span>(x)</span></code></pre></div>
+<pre><code>## x
+##  1  2  3  4  5  6  7  8  9 10 
+##  1  1  1  1  1  1  1  1  1  1</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-types-and-data-structures.html#cb130-1" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.25    5.50    5.50    7.75   10.00</code></pre>
+</div>
+<div id="vector-operations" class="section level3 hasAnchor" number="3.3.7">
+<h3><span class="header-section-number">3.3.7</span> Vector Operations<a href="data-types-and-data-structures.html#vector-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="images/VectorOperations.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-types-and-data-structures.html#cb132-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb132-2"><a href="data-types-and-data-structures.html#cb132-2" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="dv">11</span><span class="sc">:</span><span class="dv">20</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="data-types-and-data-structures.html#cb133-1" tabindex="-1"></a>x<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="data-types-and-data-structures.html#cb135-1" tabindex="-1"></a>x<span class="sc">+</span>y</span></code></pre></div>
+<pre><code>##  [1] 12 14 16 18 20 22 24 26 28 30</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-types-and-data-structures.html#cb137-1" tabindex="-1"></a>x<span class="sc">*</span>y</span></code></pre></div>
+<pre><code>##  [1]  11  24  39  56  75  96 119 144 171 200</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-types-and-data-structures.html#cb139-1" tabindex="-1"></a>x<span class="sc">^</span>y</span></code></pre></div>
+<pre><code>##  [1] 1.000000e+00 4.096000e+03 1.594323e+06 2.684355e+08 3.051758e+10 2.821110e+12 2.326305e+14 1.801440e+16
+##  [9] 1.350852e+18 1.000000e+20</code></pre>
+</div>
+<div id="recycling" class="section level3 hasAnchor" number="3.3.8">
+<h3><span class="header-section-number">3.3.8</span> Recycling<a href="data-types-and-data-structures.html#recycling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If one of the vectors is smaller than the other, operations are still possible. R will replicate the smaller vector to enable the operation to occur. <strong>IMPORTANT: if the larger vector is NOT a multiple of the smaller vector, the replication will still occur but will end at the length of the larger vector.</strong></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-types-and-data-structures.html#cb141-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb141-2"><a href="data-types-and-data-structures.html#cb141-2" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb141-3"><a href="data-types-and-data-structures.html#cb141-3" tabindex="-1"></a>x<span class="sc">+</span>y</span></code></pre></div>
+<pre><code>## Warning in x + y: longer object length is not a multiple of shorter object length</code></pre>
+<pre><code>##  [1]  2  4  6  5  7  9  8 10 12 11</code></pre>
+<div id="exercise-1" class="section level4 hasAnchor" number="3.3.8.1">
+<h4><span class="header-section-number">3.3.8.1</span> Exercise<a href="data-types-and-data-structures.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Calculate the sum of the following sequence of fractions:</p>
+<p><code>x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)</code></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="data-types-and-data-structures.html#cb144-1" tabindex="-1"></a><span class="co"># n=100</span></span>
+<span id="cb144-2"><a href="data-types-and-data-structures.html#cb144-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.634984</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="data-types-and-data-structures.html#cb146-1" tabindex="-1"></a><span class="co"># n=10000</span></span>
+<span id="cb146-2"><a href="data-types-and-data-structures.html#cb146-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>)<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.644834</code></pre>
+</div>
+</div>
+<div id="indexing-and-subsetting" class="section level3 hasAnchor" number="3.3.9">
+<h3><span class="header-section-number">3.3.9</span> Indexing and subsetting<a href="data-types-and-data-structures.html#indexing-and-subsetting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For this example, lets create a vector of random numbers from 1 to 100 of size 15.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-types-and-data-structures.html#cb148-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="at">size =</span> <span class="dv">15</span>,<span class="at">replace =</span> F) </span>
+<span id="cb148-2"><a href="data-types-and-data-structures.html#cb148-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 83 49 98 26 97 54 37 33  2 15 52 14 38 30 10</code></pre>
+<p>Using the index/position</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data-types-and-data-structures.html#cb150-1" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="co"># Get the first element</span></span></code></pre></div>
+<pre><code>## [1] 83</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="data-types-and-data-structures.html#cb152-1" tabindex="-1"></a>x[<span class="dv">13</span>] <span class="co"># Get the thirteenth element</span></span></code></pre></div>
+<pre><code>## [1] 38</code></pre>
+<p>Using a vector of indices</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="data-types-and-data-structures.html#cb154-1" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>] <span class="co"># The first 12 numbers</span></span></code></pre></div>
+<pre><code>##  [1] 83 49 98 26 97 54 37 33  2 15 52 14</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="data-types-and-data-structures.html#cb156-1" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">13</span>)] <span class="co"># Specific positions only</span></span></code></pre></div>
+<pre><code>## [1] 83 97 54 33  2 38</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-types-and-data-structures.html#cb158-1" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)]</span>
+<span id="cb158-2"><a href="data-types-and-data-structures.html#cb158-2" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="data-types-and-data-structures.html#cb158-3" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>)]</span></code></pre></div>
+<pre><code>##  a  c  d 
+## 83 98 26</code></pre>
+<p>Using a logical vector</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="data-types-and-data-structures.html#cb160-1" tabindex="-1"></a><span class="co"># Only numbers that are less than or equal to 10</span></span>
+<span id="cb160-2"><a href="data-types-and-data-structures.html#cb160-2" tabindex="-1"></a>x<span class="sc">&lt;</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##     a     b     c     d     e     f     g     h     i     j     k     l     m     n     o 
+## FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-types-and-data-structures.html#cb162-1" tabindex="-1"></a>x[x<span class="sc">&gt;</span><span class="dv">95</span>] </span></code></pre></div>
+<pre><code>##  c  e 
+## 98 97</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-types-and-data-structures.html#cb164-1" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb164-2"><a href="data-types-and-data-structures.html#cb164-2" tabindex="-1"></a><span class="co"># # Only even numbers </span></span>
+<span id="cb164-3"><a href="data-types-and-data-structures.html#cb164-3" tabindex="-1"></a><span class="co"># x%%2 == 0</span></span>
+<span id="cb164-4"><a href="data-types-and-data-structures.html#cb164-4" tabindex="-1"></a><span class="co"># x[x%%2 == 0]</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data-types-and-data-structures.html#cb165-1" tabindex="-1"></a>x<span class="sc">&lt;</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##     a     b     c     d     e     f     g     h     i     j     k     l     m     n     o 
+## FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data-types-and-data-structures.html#cb167-1" tabindex="-1"></a>x[x<span class="sc">&lt;=</span><span class="dv">10</span>] <span class="co"># Only numbers that are less than or equal to 10</span></span></code></pre></div>
+<pre><code>##  i  o 
+##  2 10</code></pre>
+<p>Skipping elements using indices</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data-types-and-data-structures.html#cb169-1" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>)]</span></code></pre></div>
+<pre><code>##  b  c  d  f  g  h  i  j  k  l  m  n  o 
+## 49 98 26 54 37 33  2 15 52 14 38 30 10</code></pre>
+<p>Skipping elements using names</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-types-and-data-structures.html#cb171-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb171-2"><a href="data-types-and-data-structures.html#cb171-2" tabindex="-1"></a><span class="fu">names</span>(x)<span class="ot">&lt;-</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb171-3"><a href="data-types-and-data-structures.html#cb171-3" tabindex="-1"></a>x[<span class="fu">names</span>(x) <span class="sc">!=</span> <span class="st">&quot;a&quot;</span>]</span></code></pre></div>
+<pre><code>##  b  c  d  e  f  g  h  i  j 
+##  2  3  4  5  6  7  8  9 10</code></pre>
+<div id="exercise-2" class="section level4 hasAnchor" number="3.3.9.1">
+<h4><span class="header-section-number">3.3.9.1</span> Exercise<a href="data-types-and-data-structures.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Find all the odd numbers in <code>x</code></p>
+</div>
+</div>
+</div>
+<div id="lists" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Lists<a href="data-types-and-data-structures.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Key points:<br />
+- Can contain objects of multiple classes<br />
+- Extremely powerful when combined with some R built-in functions</p>
+<p><img src="images/Lists.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Creating lists with different data types</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-types-and-data-structures.html#cb173-1" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">list</span>(<span class="st">&quot;hello&quot;</span>,<span class="st">&#39;hi&#39;</span>), <span class="cn">TRUE</span>)</span>
+<span id="cb173-2"><a href="data-types-and-data-structures.html#cb173-2" tabindex="-1"></a>l</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## [[2]]
+## [[2]][[1]]
+## [1] &quot;hello&quot;
+## 
+## [[2]][[2]]
+## [1] &quot;hi&quot;
+## 
+## 
+## [[3]]
+## [1] TRUE</code></pre>
+<p>Assigning names as we create the list</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data-types-and-data-structures.html#cb175-1" tabindex="-1"></a>l<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;Numbers&quot;</span>, </span>
+<span id="cb175-2"><a href="data-types-and-data-structures.html#cb175-2" tabindex="-1"></a>        <span class="at">numbers =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, </span>
+<span id="cb175-3"><a href="data-types-and-data-structures.html#cb175-3" tabindex="-1"></a>        <span class="at">logic =</span> <span class="cn">TRUE</span> )</span>
+<span id="cb175-4"><a href="data-types-and-data-structures.html#cb175-4" tabindex="-1"></a>l</span></code></pre></div>
+<pre><code>## $title
+## [1] &quot;Numbers&quot;
+## 
+## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $logic
+## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="data-types-and-data-structures.html#cb177-1" tabindex="-1"></a><span class="fu">names</span>(l)</span></code></pre></div>
+<pre><code>## [1] &quot;title&quot;   &quot;numbers&quot; &quot;logic&quot;</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-types-and-data-structures.html#cb179-1" tabindex="-1"></a>l<span class="sc">$</span>numbers</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div id="indexing-and-subsetting-1" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Indexing and subsetting<a href="data-types-and-data-structures.html#indexing-and-subsetting-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using <code>[[]]</code> instead of <code>[]</code></p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="data-types-and-data-structures.html#cb181-1" tabindex="-1"></a>l[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## [1] &quot;Numbers&quot;</code></pre>
+<p>Using <code>$</code> for named lists</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="data-types-and-data-structures.html#cb183-1" tabindex="-1"></a>l<span class="sc">$</span>logic</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="built-in-functions-1" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Built-in functions<a href="data-types-and-data-structures.html#built-in-functions-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-types-and-data-structures.html#cb185-1" tabindex="-1"></a>l<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">10</span>),</span>
+<span id="cb185-2"><a href="data-types-and-data-structures.html#cb185-2" tabindex="-1"></a>        <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">10</span>),</span>
+<span id="cb185-3"><a href="data-types-and-data-structures.html#cb185-3" tabindex="-1"></a>        <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">10</span>))</span>
+<span id="cb185-4"><a href="data-types-and-data-structures.html#cb185-4" tabindex="-1"></a><span class="fu">names</span>(l)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;r1&quot;</span>,<span class="st">&quot;r2&quot;</span>,<span class="st">&quot;r3&quot;</span>)</span>
+<span id="cb185-5"><a href="data-types-and-data-structures.html#cb185-5" tabindex="-1"></a>l</span></code></pre></div>
+<pre><code>## $r1
+##  [1] 38 78 46 34 30 40 98 70 48 59
+## 
+## $r2
+##  [1] 70 10 17 41 78 82  3 99 68 27
+## 
+## $r3
+##  [1] 79 12 67 39 43 94 26 13 64 53</code></pre>
+<p>Performing operations on all elements of the list using <code>lapply</code></p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data-types-and-data-structures.html#cb187-1" tabindex="-1"></a>lsums<span class="ot">&lt;-</span><span class="fu">lapply</span>(l,sum)</span>
+<span id="cb187-2"><a href="data-types-and-data-structures.html#cb187-2" tabindex="-1"></a>lsums</span></code></pre></div>
+<pre><code>## $r1
+## [1] 541
+## 
+## $r2
+## [1] 495
+## 
+## $r3
+## [1] 490</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="data-types-and-data-structures.html#cb189-1" tabindex="-1"></a>lsums <span class="ot">&lt;-</span> <span class="fu">lapply</span>(l,<span class="cf">function</span>(a){</span>
+<span id="cb189-2"><a href="data-types-and-data-structures.html#cb189-2" tabindex="-1"></a>  <span class="fu">sum</span>(a)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb189-3"><a href="data-types-and-data-structures.html#cb189-3" tabindex="-1"></a>})</span>
+<span id="cb189-4"><a href="data-types-and-data-structures.html#cb189-4" tabindex="-1"></a>lsums</span></code></pre></div>
+<pre><code>## $r1
+## [1] 292681
+## 
+## $r2
+## [1] 245025
+## 
+## $r3
+## [1] 240100</code></pre>
+</div>
+</div>
+<div id="factors" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Factors<a href="data-types-and-data-structures.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Key points:</p>
+<ul>
+<li>Useful when for categorical data<br />
+</li>
+<li>Can have implicit order, if needed<br />
+</li>
+<li>Each element has a label or level<br />
+</li>
+<li>They are important in statistical modelling and plotting with ggplot<br />
+</li>
+<li>Some operations behave differently on factors</li>
+</ul>
+<p><img src="images/Factors.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Creating factors with <code>factor</code></p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="data-types-and-data-structures.html#cb191-1" tabindex="-1"></a>cols<span class="ot">&lt;-</span><span class="fu">factor</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;red&quot;</span>,<span class="dv">4</span>),<span class="fu">rep</span>(<span class="st">&quot;blue&quot;</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="st">&quot;green&quot;</span>,<span class="dv">2</span>)),</span>
+<span id="cb191-2"><a href="data-types-and-data-structures.html#cb191-2" tabindex="-1"></a>             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;green&quot;</span>))</span>
+<span id="cb191-3"><a href="data-types-and-data-structures.html#cb191-3" tabindex="-1"></a>cols</span></code></pre></div>
+<pre><code>##  [1] red   red   red   red   blue  blue  blue  blue  blue  green green
+## Levels: red blue green</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="data-types-and-data-structures.html#cb193-1" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;case&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;case&quot;</span>)</span>
+<span id="cb193-2"><a href="data-types-and-data-structures.html#cb193-2" tabindex="-1"></a>samples</span></code></pre></div>
+<pre><code>## [1] &quot;case&quot;    &quot;control&quot; &quot;control&quot; &quot;case&quot;</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="data-types-and-data-structures.html#cb195-1" tabindex="-1"></a>samples_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(samples, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;case&quot;</span>))</span>
+<span id="cb195-2"><a href="data-types-and-data-structures.html#cb195-2" tabindex="-1"></a>samples_factor</span></code></pre></div>
+<pre><code>## [1] case    control control case   
+## Levels: control case</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-types-and-data-structures.html#cb197-1" tabindex="-1"></a><span class="fu">str</span>(samples_factor)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;control&quot;,&quot;case&quot;: 2 1 1 2</code></pre>
+</div>
+<div id="exercise-3" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Exercise<a href="data-types-and-data-structures.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>See what happens when you convert a factor to a numeric in the code chunk below. What do you get?</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data-types-and-data-structures.html#cb199-1" tabindex="-1"></a><span class="co">#Take the samples variable and convert it to a numeric</span></span>
+<span id="cb199-2"><a href="data-types-and-data-structures.html#cb199-2" tabindex="-1"></a><span class="co">#What function do you need to do this (hint: we used it a few chunks ago!)</span></span></code></pre></div>
+<div id="built-in-functions-2" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Built-in functions<a href="data-types-and-data-structures.html#built-in-functions-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Grouping elements in a vector using <code>tapply</code></p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="data-types-and-data-structures.html#cb200-1" tabindex="-1"></a>measurements<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,<span class="dv">6</span>)</span>
+<span id="cb200-2"><a href="data-types-and-data-structures.html#cb200-2" tabindex="-1"></a>samples<span class="ot">&lt;-</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;case&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;control&quot;</span>,<span class="dv">3</span>)), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;case&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data-types-and-data-structures.html#cb201-1" tabindex="-1"></a><span class="fu">tapply</span>(measurements, samples, mean)</span></code></pre></div>
+<pre><code>##  control     case 
+## 396.3333 463.6667</code></pre>
+</div>
+</div>
+<div id="matrices" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Matrices<a href="data-types-and-data-structures.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/Matrices.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Creating a matrix full of zeros with <code>matrix()</code></p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-types-and-data-structures.html#cb203-1" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">ncol=</span><span class="dv">6</span>, <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb203-2"><a href="data-types-and-data-structures.html#cb203-2" tabindex="-1"></a>m</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    0    0    0    0    0    0
+## [2,]    0    0    0    0    0    0
+## [3,]    0    0    0    0    0    0</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data-types-and-data-structures.html#cb205-1" tabindex="-1"></a><span class="fu">class</span>(m)</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data-types-and-data-structures.html#cb207-1" tabindex="-1"></a><span class="fu">typeof</span>(m)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>Creating a matrix from a vector of numbers</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data-types-and-data-structures.html#cb209-1" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">5</span>)</span>
+<span id="cb209-2"><a href="data-types-and-data-structures.html#cb209-2" tabindex="-1"></a>m</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    1
+## [2,]    2    2
+## [3,]    3    3
+## [4,]    4    4
+## [5,]    5    5</code></pre>
+<div id="attributes" class="section level3 hasAnchor" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Attributes<a href="data-types-and-data-structures.html#attributes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Names of each dimension</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-types-and-data-structures.html#cb211-1" tabindex="-1"></a><span class="fu">colnames</span>(m)<span class="ot">&lt;-</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb211-2"><a href="data-types-and-data-structures.html#cb211-2" tabindex="-1"></a><span class="fu">rownames</span>(m)<span class="ot">&lt;-</span>LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb211-3"><a href="data-types-and-data-structures.html#cb211-3" tabindex="-1"></a>m</span></code></pre></div>
+<pre><code>##   a b
+## A 1 1
+## B 2 2
+## C 3 3
+## D 4 4
+## E 5 5</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="data-types-and-data-structures.html#cb213-1" tabindex="-1"></a><span class="fu">str</span>(m)</span></code></pre></div>
+<pre><code>##  int [1:5, 1:2] 1 2 3 4 5 1 2 3 4 5
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : chr [1:5] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...
+##   ..$ : chr [1:2] &quot;a&quot; &quot;b&quot;</code></pre>
+</div>
+<div id="built-in-functions-3" class="section level3 hasAnchor" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> Built-in functions<a href="data-types-and-data-structures.html#built-in-functions-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To know the size of the matrix</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data-types-and-data-structures.html#cb215-1" tabindex="-1"></a><span class="fu">dim</span>(m)</span></code></pre></div>
+<pre><code>## [1] 5 2</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data-types-and-data-structures.html#cb217-1" tabindex="-1"></a><span class="fu">ncol</span>(m)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data-types-and-data-structures.html#cb219-1" tabindex="-1"></a><span class="fu">nrow</span>(m)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div id="exercise-4" class="section level4 hasAnchor" number="3.7.2.1">
+<h4><span class="header-section-number">3.7.2.1</span> Exercise<a href="data-types-and-data-structures.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>What do you think that <code>length(m)</code> will return?</p>
+</div>
+</div>
+</div>
+<div id="data-frames" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Data frames<a href="data-types-and-data-structures.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Key points:</p>
+<ul>
+<li>Columns in data frames are vectors<br />
+</li>
+<li>Each column can be of a different data type<br />
+</li>
+<li>A data frame is essentially a list of vectors</li>
+</ul>
+<p><img src="images/DataFrames.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Creating a data frame using <code>data.frame()</code></p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data-types-and-data-structures.html#cb221-1" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">numbers=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb221-2"><a href="data-types-and-data-structures.html#cb221-2" tabindex="-1"></a>               <span class="at">low_letters=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>],</span>
+<span id="cb221-3"><a href="data-types-and-data-structures.html#cb221-3" tabindex="-1"></a>               <span class="at">logical_values=</span><span class="fu">rep</span>(<span class="fu">c</span>(T,F),<span class="at">each=</span><span class="dv">5</span>))</span>
+<span id="cb221-4"><a href="data-types-and-data-structures.html#cb221-4" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##    numbers low_letters logical_values
+## 1        1           a           TRUE
+## 2        2           b           TRUE
+## 3        3           c           TRUE
+## 4        4           d           TRUE
+## 5        5           e           TRUE
+## 6        6           f          FALSE
+## 7        7           g          FALSE
+## 8        8           h          FALSE
+## 9        9           i          FALSE
+## 10      10           j          FALSE</code></pre>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data-types-and-data-structures.html#cb223-1" tabindex="-1"></a><span class="fu">class</span>(df)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data-types-and-data-structures.html#cb225-1" tabindex="-1"></a><span class="fu">typeof</span>(df)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data-types-and-data-structures.html#cb227-1" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    10 obs. of  3 variables:
+##  $ numbers       : int  1 2 3 4 5 6 7 8 9 10
+##  $ low_letters   : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+##  $ logical_values: logi  TRUE TRUE TRUE TRUE TRUE FALSE ...</code></pre>
+<p>Re-naming columns</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data-types-and-data-structures.html#cb229-1" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;lowercase&quot;</span></span>
+<span id="cb229-2"><a href="data-types-and-data-structures.html#cb229-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>##   numbers lowercase logical_values
+## 1       1         a           TRUE
+## 2       2         b           TRUE
+## 3       3         c           TRUE
+## 4       4         d           TRUE
+## 5       5         e           TRUE
+## 6       6         f          FALSE</code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data-types-and-data-structures.html#cb231-1" tabindex="-1"></a><span class="fu">View</span>(df)</span></code></pre></div>
+<div id="indexing-and-sub-setting" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Indexing and sub-setting<a href="data-types-and-data-structures.html#indexing-and-sub-setting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="data-types-and-data-structures.html#cb232-1" tabindex="-1"></a>df<span class="sc">$</span>numbers</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="data-types-and-data-structures.html#cb234-1" tabindex="-1"></a>df[<span class="st">&quot;numbers&quot;</span>]</span></code></pre></div>
+<pre><code>##    numbers
+## 1        1
+## 2        2
+## 3        3
+## 4        4
+## 5        5
+## 6        6
+## 7        7
+## 8        8
+## 9        9
+## 10      10</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="data-types-and-data-structures.html#cb236-1" tabindex="-1"></a>df[<span class="dv">1</span>,]</span></code></pre></div>
+<pre><code>##   numbers lowercase logical_values
+## 1       1         a           TRUE</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="data-types-and-data-structures.html#cb238-1" tabindex="-1"></a>df[,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="data-types-and-data-structures.html#cb240-1" tabindex="-1"></a>df[<span class="dv">3</span>,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+</div>
+<div id="coercion" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Coercion<a href="data-types-and-data-structures.html#coercion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Converting between data types with <code>as.</code> functions</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="data-types-and-data-structures.html#cb242-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb242-2"><a href="data-types-and-data-structures.html#cb242-2" tabindex="-1"></a><span class="fu">as.list</span>(x)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3
+## 
+## [[4]]
+## [1] 4
+## 
+## [[5]]
+## [1] 5
+## 
+## [[6]]
+## [1] 6
+## 
+## [[7]]
+## [1] 7
+## 
+## [[8]]
+## [1] 8
+## 
+## [[9]]
+## [1] 9
+## 
+## [[10]]
+## [1] 10</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="data-types-and-data-structures.html#cb244-1" tabindex="-1"></a>l<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">numbers=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb244-2"><a href="data-types-and-data-structures.html#cb244-2" tabindex="-1"></a>        <span class="at">lowercase=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span>
+<span id="cb244-3"><a href="data-types-and-data-structures.html#cb244-3" tabindex="-1"></a>l</span></code></pre></div>
+<pre><code>## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $lowercase
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot;</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="data-types-and-data-structures.html#cb246-1" tabindex="-1"></a><span class="fu">typeof</span>(l)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="data-types-and-data-structures.html#cb248-1" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(l)</span>
+<span id="cb248-2"><a href="data-types-and-data-structures.html#cb248-2" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##    numbers lowercase
+## 1        1         a
+## 2        2         b
+## 3        3         c
+## 4        4         d
+## 5        5         e
+## 6        6         f
+## 7        7         g
+## 8        8         h
+## 9        9         i
+## 10      10         j</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="data-types-and-data-structures.html#cb250-1" tabindex="-1"></a><span class="fu">typeof</span>(df)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+</div>
+<div id="hands-on-data-types" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Hands on: Data types<a href="data-types-and-data-structures.html#hands-on-data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Make a matrix with the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behavior?</li>
+<li>Create a list of length two containing a character vector for each of the data sections: (1) Data types and (2) Data structures. Populate each character vector with the names of the data types and data structures, respectively.<br />
+</li>
+<li>There are several subtly different ways to call variables, observations and elements from data frames. Try them all and discuss with your team what they return. (Hint, use the function <code>typeof()</code>)<br />
+</li>
+<li>Take the list you created in 3 and coerce it into a data frame. Then change the names of the columns to “dataTypes” and “dataStructures”.</li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="control-structures-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

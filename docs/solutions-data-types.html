@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Solutions || Data Types | Intro to R</title>
+  <meta name="description" content="11 Solutions || Data Types | Intro to R" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Solutions || Data Types | Intro to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Solutions || Data Types | Intro to R" />
+  
+  
+  
+
+
+
+<meta name="date" content="2024-02-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="references.html"/>
+<link rel="next" href="solutions-basic-data-manipulation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro to R Bookdown</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-markdown-file"><i class="fa fa-check"></i><b>2.1</b> R Markdown File</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.2</b> <strong>Learning objectives</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#comments"><i class="fa fa-check"></i><b>2.3</b> <strong>Comments</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#arithmetic-operations"><i class="fa fa-check"></i><b>2.4</b> Arithmetic Operations</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#syntax"><i class="fa fa-check"></i><b>2.5</b> Syntax</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#creating-variables"><i class="fa fa-check"></i><b>2.6</b> Creating variables</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#printing-variables"><i class="fa fa-check"></i><b>2.7</b> Printing Variables</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical-operators"><i class="fa fa-check"></i><b>2.8</b> Logical operators</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exercise"><i class="fa fa-check"></i><b>2.9</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html"><i class="fa fa-check"></i><b>3</b> Data types and data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data Types</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#numeric"><i class="fa fa-check"></i><b>3.3.1</b> Numeric</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#integer"><i class="fa fa-check"></i><b>3.3.2</b> Integer</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#logical"><i class="fa fa-check"></i><b>3.3.3</b> Logical</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector-attributes"><i class="fa fa-check"></i><b>3.3.5</b> Vector attributes</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions"><i class="fa fa-check"></i><b>3.3.6</b> Built-in functions</a></li>
+<li class="chapter" data-level="3.3.7" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector-operations"><i class="fa fa-check"></i><b>3.3.7</b> Vector Operations</a></li>
+<li class="chapter" data-level="3.3.8" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#recycling"><i class="fa fa-check"></i><b>3.3.8</b> Recycling</a></li>
+<li class="chapter" data-level="3.3.9" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-subsetting"><i class="fa fa-check"></i><b>3.3.9</b> Indexing and subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#lists"><i class="fa fa-check"></i><b>3.4</b> Lists</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-subsetting-1"><i class="fa fa-check"></i><b>3.4.1</b> Indexing and subsetting</a></li>
+<li class="chapter" data-level="3.4.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-1"><i class="fa fa-check"></i><b>3.4.2</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#factors"><i class="fa fa-check"></i><b>3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#exercise-3"><i class="fa fa-check"></i><b>3.6</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-2"><i class="fa fa-check"></i><b>3.6.1</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#matrices"><i class="fa fa-check"></i><b>3.7</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#attributes"><i class="fa fa-check"></i><b>3.7.1</b> Attributes</a></li>
+<li class="chapter" data-level="3.7.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#built-in-functions-3"><i class="fa fa-check"></i><b>3.7.2</b> Built-in functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-frames"><i class="fa fa-check"></i><b>3.8</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#indexing-and-sub-setting"><i class="fa fa-check"></i><b>3.8.1</b> Indexing and sub-setting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#coercion"><i class="fa fa-check"></i><b>3.9</b> Coercion</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#hands-on-data-types"><i class="fa fa-check"></i><b>3.10</b> Hands on: Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="control-structures-functions.html"><a href="control-structures-functions.html"><i class="fa fa-check"></i><b>4</b> Control Structures &amp; Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="control-structures-functions.html"><a href="control-structures-functions.html#learning-objectives-1"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="control-structures-functions.html"><a href="control-structures-functions.html#conditional-statements"><i class="fa fa-check"></i><b>4.2</b> Conditional Statements</a></li>
+<li class="chapter" data-level="4.3" data-path="control-structures-functions.html"><a href="control-structures-functions.html#for-while-loops"><i class="fa fa-check"></i><b>4.3</b> For &amp; While Loops</a></li>
+<li class="chapter" data-level="4.4" data-path="control-structures-functions.html"><a href="control-structures-functions.html#functions"><i class="fa fa-check"></i><b>4.4</b> Functions</a></li>
+<li class="chapter" data-level="4.5" data-path="control-structures-functions.html"><a href="control-structures-functions.html#installing-packages"><i class="fa fa-check"></i><b>4.5</b> Installing packages</a></li>
+<li class="chapter" data-level="4.6" data-path="control-structures-functions.html"><a href="control-structures-functions.html#detour-seeking-help"><i class="fa fa-check"></i><b>4.6</b> Detour || Seeking help</a></li>
+<li class="chapter" data-level="4.7" data-path="control-structures-functions.html"><a href="control-structures-functions.html#exercise-5"><i class="fa fa-check"></i><b>4.7</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="control-structures-functions.html"><a href="control-structures-functions.html#section"><i class="fa fa-check"></i><b>4.7.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>5</b> Basic data manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#readingwriting-data"><i class="fa fa-check"></i><b>5.1</b> Reading/writing data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#text-files"><i class="fa fa-check"></i><b>5.1.1</b> Text files</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#r-objects"><i class="fa fa-check"></i><b>5.1.2</b> R objects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#exploring-data-frames"><i class="fa fa-check"></i><b>5.2</b> Exploring data frames</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-columns-and-rows"><i class="fa fa-check"></i><b>5.2.1</b> Adding columns and rows</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#removing-columns-and-rows"><i class="fa fa-check"></i><b>5.2.2</b> Removing columns and rows</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#applying-filters"><i class="fa fa-check"></i><b>5.2.3</b> Applying filters</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#editing-specific-elements"><i class="fa fa-check"></i><b>5.2.4</b> Editing specific elements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#hands-on-basic-data-manipulation"><i class="fa fa-check"></i><b>5.3</b> Hands-on: basic data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Advanced data manipulation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#manipulation-with-dplyr"><i class="fa fa-check"></i><b>6.1</b> Manipulation with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#introducing-pipes"><i class="fa fa-check"></i><b>6.1.1</b> Introducing pipes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-select"><i class="fa fa-check"></i><b>6.1.2</b> Using <code>select()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-filter"><i class="fa fa-check"></i><b>6.1.3</b> Using <code>filter()</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-group_by"><i class="fa fa-check"></i><b>6.1.4</b> Using <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.1.5" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-summarize"><i class="fa fa-check"></i><b>6.1.5</b> Using <code>summarize()</code></a></li>
+<li class="chapter" data-level="6.1.6" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#using-mutate"><i class="fa fa-check"></i><b>6.1.6</b> Using <code>mutate()</code></a></li>
+<li class="chapter" data-level="6.1.7" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#putting-them-all-together"><i class="fa fa-check"></i><b>6.1.7</b> Putting them all together</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="advanced-data-manipulation.html"><a href="advanced-data-manipulation.html#hands-on-advanced-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Hands-on advanced data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html"><i class="fa fa-check"></i><b>7</b> Generating visual outputs</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#graphics-with-base-r"><i class="fa fa-check"></i><b>7.1</b> Graphics with base R</a></li>
+<li class="chapter" data-level="7.2" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#graphics-with-ggplot2"><i class="fa fa-check"></i><b>7.2</b> Graphics with ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="generating-visual-outputs.html"><a href="generating-visual-outputs.html#some-ggplot-tricks"><i class="fa fa-check"></i><b>7.2.1</b> Some ggplot tricks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="real-life-application.html"><a href="real-life-application.html"><i class="fa fa-check"></i><b>8</b> Real life application</a></li>
+<li class="chapter" data-level="9" data-path="software-development-concepts.html"><a href="software-development-concepts.html"><i class="fa fa-check"></i><b>9</b> Software development concepts</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="software-development-concepts.html"><a href="software-development-concepts.html#good-coding-practices"><i class="fa fa-check"></i><b>9.1</b> Good coding practices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="software-development-concepts.html"><a href="software-development-concepts.html#script-structure"><i class="fa fa-check"></i><b>9.1.1</b> Script structure</a></li>
+<li class="chapter" data-level="9.1.2" data-path="software-development-concepts.html"><a href="software-development-concepts.html#functions-1"><i class="fa fa-check"></i><b>9.1.2</b> Functions</a></li>
+<li class="chapter" data-level="9.1.3" data-path="software-development-concepts.html"><a href="software-development-concepts.html#external-packages"><i class="fa fa-check"></i><b>9.1.3</b> External packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="software-development-concepts.html"><a href="software-development-concepts.html#debugging-and-troubleshooting"><i class="fa fa-check"></i><b>9.2</b> Debugging and troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="11" data-path="solutions-data-types.html"><a href="solutions-data-types.html"><i class="fa fa-check"></i><b>11</b> Solutions || Data Types</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="solutions-data-types.html"><a href="solutions-data-types.html#vectors-1"><i class="fa fa-check"></i><b>11.1</b> Vectors</a></li>
+<li class="chapter" data-level="11.2" data-path="solutions-data-types.html"><a href="solutions-data-types.html#matrices-1"><i class="fa fa-check"></i><b>11.2</b> Matrices</a></li>
+<li class="chapter" data-level="11.3" data-path="solutions-data-types.html"><a href="solutions-data-types.html#lists-1"><i class="fa fa-check"></i><b>11.3</b> Lists</a></li>
+<li class="chapter" data-level="11.4" data-path="solutions-data-types.html"><a href="solutions-data-types.html#data-frames-1"><i class="fa fa-check"></i><b>11.4</b> Data frames</a></li>
+<li class="chapter" data-level="11.5" data-path="solutions-data-types.html"><a href="solutions-data-types.html#coercion-1"><i class="fa fa-check"></i><b>11.5</b> Coercion</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html"><i class="fa fa-check"></i><b>12</b> Solutions || Basic Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html#writing-data"><i class="fa fa-check"></i><b>12.1</b> Writing data</a></li>
+<li class="chapter" data-level="12.2" data-path="solutions-basic-data-manipulation.html"><a href="solutions-basic-data-manipulation.html#exploring-data-frames-1"><i class="fa fa-check"></i><b>12.2</b> Exploring data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="solutions-adv.-data-manipulation.html"><a href="solutions-adv.-data-manipulation.html"><i class="fa fa-check"></i><b>13</b> Solutions || Adv. Data Manipulation</a></li>
+<li class="chapter" data-level="14" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html"><i class="fa fa-check"></i><b>14</b> Solutions || Medical Data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#clinics-included"><i class="fa fa-check"></i><b>14.1</b> Clinics included</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-clinics"><i class="fa fa-check"></i><b>14.1.1</b> Number of clinics</a></li>
+<li class="chapter" data-level="14.1.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-valid-tests"><i class="fa fa-check"></i><b>14.1.2</b> Number of valid tests</a></li>
+<li class="chapter" data-level="14.1.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#testing-trend-over-time"><i class="fa fa-check"></i><b>14.1.3</b> Testing trend over time</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-positive-tests"><i class="fa fa-check"></i><b>14.2</b> Number of positive tests</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#number-of-positive-tests-in-the-first-100-days"><i class="fa fa-check"></i><b>14.2.1</b> Number of positive tests in the first 100 days</a></li>
+<li class="chapter" data-level="14.2.2" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#tests-by-age-group"><i class="fa fa-check"></i><b>14.2.2</b> Tests by age group</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#processing-times"><i class="fa fa-check"></i><b>14.3</b> Processing times</a></li>
+<li class="chapter" data-level="14.4" data-path="solutions-medical-data.html"><a href="solutions-medical-data.html#bonus---viral-load"><i class="fa fa-check"></i><b>14.4</b> Bonus - Viral load</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="workshop-slides.html"><a href="workshop-slides.html"><i class="fa fa-check"></i><b>15</b> Workshop Slides</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="solutions-data-types" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Solutions || Data Types<a href="solutions-data-types.html#solutions-data-types" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="images/MiCM_Logo.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<div id="vectors-1" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Vectors<a href="solutions-data-types.html#vectors-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Make a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS).</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="solutions-data-types.html#cb386-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span></span>
+<span id="cb386-2"><a href="solutions-data-types.html#cb386-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb386-3"><a href="solutions-data-types.html#cb386-3" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> LETTERS</span></code></pre></div>
+</div>
+<div id="matrices-1" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Matrices<a href="solutions-data-types.html#matrices-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Make a matrix with the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behavior? Once you have figured it out, try to change the default. (hint: read the documentation for <code>matrix</code>)</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="solutions-data-types.html#cb387-1" tabindex="-1"></a><span class="co"># By default the matrix is filled by columns, we can change this behavior using byrow=TRUE</span></span>
+<span id="cb387-2"><a href="solutions-data-types.html#cb387-2" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,<span class="at">ncol =</span> <span class="dv">5</span>,<span class="at">nrow =</span> <span class="dv">10</span>,<span class="at">byrow =</span> T)</span></code></pre></div>
+<p>Bonus: Which of the following commands was used to generate the matrix below?</p>
+<ul>
+<li><code>matrix(c(4, 1, 9, 5, 10, 7), nrow = 3)</code></li>
+<li><code>matrix(c(4, 9, 10, 1, 5, 7), ncol = 2, byrow = TRUE)</code></li>
+<li><code>matrix(c(4, 9, 10, 1, 5, 7), nrow = 2)</code></li>
+<li><code>matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)</code></li>
+</ul>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="solutions-data-types.html#cb388-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">7</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    4    1
+## [2,]    9    5
+## [3,]   10    7</code></pre>
+</div>
+<div id="lists-1" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Lists<a href="solutions-data-types.html#lists-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a list of length two containing a character vector for each of the data sections: (1) Data types and (2) Data structures. Populate each character vector with the names of the data types and data structures, respectively.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="solutions-data-types.html#cb390-1" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;double&#39;</span>, <span class="st">&#39;complex&#39;</span>, <span class="st">&#39;integer&#39;</span>, <span class="st">&#39;character&#39;</span>, <span class="st">&#39;logical&#39;</span>)</span>
+<span id="cb390-2"><a href="solutions-data-types.html#cb390-2" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;data.frame&#39;</span>, <span class="st">&#39;vector&#39;</span>, <span class="st">&#39;factor&#39;</span>, <span class="st">&#39;list&#39;</span>, <span class="st">&#39;matrix&#39;</span>)</span>
+<span id="cb390-3"><a href="solutions-data-types.html#cb390-3" tabindex="-1"></a>data.sections <span class="ot">&lt;-</span> <span class="fu">list</span>(dt, ds)</span></code></pre></div>
+</div>
+<div id="data-frames-1" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Data frames<a href="solutions-data-types.html#data-frames-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are several subtly different ways to call variables, observations and elements from data frames. Try them all and discuss with your team what they return. (Hint, use the function <code>typeof()</code>)</p>
+<ul>
+<li><code>iris[1]</code></li>
+<li><code>iris[[1]]</code></li>
+<li><code>iris$Species</code></li>
+<li><code>iris["Species"]</code></li>
+<li><code>iris[1,1]</code></li>
+<li><code>iris[,1]</code></li>
+<li><code>iris[1,]</code></li>
+</ul>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="solutions-data-types.html#cb391-1" tabindex="-1"></a><span class="co"># The single brace [1] returns the first slice of the list, as another list. In this case it is the first column of the data frame.</span></span>
+<span id="cb391-2"><a href="solutions-data-types.html#cb391-2" tabindex="-1"></a>iris[<span class="dv">1</span>]</span>
+<span id="cb391-3"><a href="solutions-data-types.html#cb391-3" tabindex="-1"></a><span class="co"># The double brace [[1]] returns the contents of the list item. In this case it is the contents of the first column, a vector of type factor.</span></span>
+<span id="cb391-4"><a href="solutions-data-types.html#cb391-4" tabindex="-1"></a>iris[[<span class="dv">1</span>]]</span>
+<span id="cb391-5"><a href="solutions-data-types.html#cb391-5" tabindex="-1"></a><span class="co"># This example uses the $ character to address items by name. Species is a vector of type factor.</span></span>
+<span id="cb391-6"><a href="solutions-data-types.html#cb391-6" tabindex="-1"></a>iris<span class="sc">$</span>Species</span>
+<span id="cb391-7"><a href="solutions-data-types.html#cb391-7" tabindex="-1"></a><span class="co"># A single brace [&quot;Species&quot;] instead of the index number with the column name will also return a list like in the first example</span></span>
+<span id="cb391-8"><a href="solutions-data-types.html#cb391-8" tabindex="-1"></a>iris[<span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb391-9"><a href="solutions-data-types.html#cb391-9" tabindex="-1"></a><span class="co"># First element of first row and first column. The returned element is an integer</span></span>
+<span id="cb391-10"><a href="solutions-data-types.html#cb391-10" tabindex="-1"></a>iris[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb391-11"><a href="solutions-data-types.html#cb391-11" tabindex="-1"></a><span class="co"># First column. Returns a vector</span></span>
+<span id="cb391-12"><a href="solutions-data-types.html#cb391-12" tabindex="-1"></a>iris[,<span class="dv">1</span>]</span>
+<span id="cb391-13"><a href="solutions-data-types.html#cb391-13" tabindex="-1"></a><span class="co"># First row. Returns a list with all the values in the first row.</span></span>
+<span id="cb391-14"><a href="solutions-data-types.html#cb391-14" tabindex="-1"></a>iris[<span class="dv">1</span>,]</span></code></pre></div>
+</div>
+<div id="coercion-1" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Coercion<a href="solutions-data-types.html#coercion-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Take the list you created in 3 and coerce it into a data frame. Then change the names of the columns to “dataTypes” and “dataStructures”</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="solutions-data-types.html#cb392-1" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(data.sections)</span>
+<span id="cb392-2"><a href="solutions-data-types.html#cb392-2" tabindex="-1"></a><span class="fu">colnames</span>(df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;dataTypes&quot;</span>,<span class="st">&quot;dataStructures&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="solutions-basic-data-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
