@@ -5,7 +5,9 @@ author:
   affiliation: Workshop Lead
 - name: Larisa M. Soto
   affiliation: Original Material
-date: '2024-02-14'
+- name: Xiaoqi Xie
+  affiliation: Contributor
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
    rmdformats::html_clean:
     toc: true
@@ -16,7 +18,7 @@ output:
 ---
 
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
-knitr::include_graphics("images/MiCM_Logo.jpg")
+knitr::include_graphics("images/MiCM_Logo.png")
 ```
 
 # Introduction to R
@@ -42,37 +44,6 @@ Comments are embedded into your code to help explain its purpose. This is extrem
 ```{r}
 # This is a comment line 
 # print('hello world')
-```
-
-## Arithmetic Operations
-
-```{r, echo=FALSE, out.width="60%",fig.align='center'}
-knitr::include_graphics("images/ArithmeticOperators.png")
-```
-
-```{r}
-# Additon
-2+100000
-```
-
-```{r}
-# Subtraction
-3-5
-```
-
-```{r}
-# Multiplication
-71*9
-```
-
-```{r}
-# Division
-90/((3*5) + 4)
-```
-
-```{r}
-# Power
-2^3
 ```
 
 ## Syntax
@@ -108,6 +79,80 @@ var2
 rm("var1")
 ```
 
+# Data types and data structures
+
+**Learning objectives**
+
+1.  Understand the differences between classes, objects and data types in R
+2.  Create objects of different types
+3.  Subset and index objects
+4.  Learn and use vectorized operations
+
+## Data Types
+
+```{r, echo=FALSE, out.width="80%",fig.align='center'}
+knitr::include_graphics("images/DataTypes.png")
+```
+
+## Atomic Classes
+
+Atomic classes are the fundamental data type found in R. All subsequent data structures are used to store entries of different atomic classes.
+
+### Numeric
+
+They store numbers as `double`, and it is stored with decimals. The term double refers to the number of bytes required to store it. Each double is accurate up to 16 significant digits.
+
+### Integer
+
+They store numbers that can be written without a decimal component. Adding an *L* after an integer tells R to store it as an integer class instead of a numeric
+
+### Logical
+
+They store the outputs of logical statements - TRUE or FALSE. Can be converted to integer where TRUE = 1 and FALSE = 0.
+
+### Character
+
+Represents text. Can either be a single character or a word/sentence.
+
+### Factor
+
+A form of character that is used for categorical information. Imposes an ordering to the different category known as a 'level'.
+
+### Missing Value
+
+Used by R to indicate a missing data entry. Useful for manipulating data sets where missing entries are common.
+
+## Arithmetic Operations
+
+```{r, echo=FALSE, out.width="60%",fig.align='center'}
+knitr::include_graphics("images/ArithmeticOperators.png")
+```
+
+```{r}
+# Additon  
+2+100000
+```
+
+```{r}
+# Subtraction  
+3-5
+```
+
+```{r}
+# Multiplication  
+71*9
+```
+
+```{r}
+# Division  
+90/((3*5) + 4)
+```
+
+```{r}
+# Power  
+2^3
+```
+
 ## Logical operators
 
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
@@ -115,26 +160,25 @@ knitr::include_graphics("images/LogicalOperators.png")
 ```
 
 ```{r}
-# First create two numeric variables
-var1 <- 35
+# First create two numeric variables  
+var1 <- 35  
 var2 <- 27
 ```
 
 ```{r}
-# Equal to
+# Equal to  
 var1 == var2
 ```
 
 ```{r}
-# Less than or equal to
-var1 <= var2
-
+# Less than or equal to  
+var1 <= var2   
 var1 != var2
 ```
 
 ```{r}
-# They also work with other classes
-var1 <- "mango"
+# They also work with other classes  
+var1 <- "mango" 
 var2 <- "mangos"
 ```
 
@@ -151,7 +195,7 @@ var1 < var2
 We can test if a variable is contained in another object
 
 ```{r}
-"c" %in% letters
+"c" %in% letters  
 "c" %in% LETTERS
 ```
 
@@ -161,27 +205,6 @@ We can test if a variable is contained in another object
 2.  Bonus: Is there a way to store the result after checking the number?
 
 ```{r}
-x <- 10
-x > 5
-
-y <- x > 5
-print(y)
-
-```
-
-# Data types and data structures
-
-**Learning objectives**
-
-1.  Understand the differences between classes, objects and data types in R
-2.  Create objects of different types
-3.  Subset and index objects
-4.  Learn and use vectorized operations
-
-## Data Types
-
-```{r, echo=FALSE, out.width="80%",fig.align='center'}
-knitr::include_graphics("images/DataTypes.png")
 ```
 
 ## Data Structures
@@ -206,8 +229,6 @@ knitr::include_graphics("images/Vectors.png")
 ```
 
 ### Numeric
-
-They store numbers as `double`, and it is stored with decimals. The term double refers to the number of bytes required to store it. Each double is accurate up to 16 significant digits.
 
 Creating a numeric vector using `c()`
 
@@ -258,8 +279,6 @@ length(x) == length(y)
 ```
 
 ### Integer
-
-They store numbers that can be written without a decimal component.
 
 Creating an integer vector using `c()`
 
