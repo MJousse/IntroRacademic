@@ -5,7 +5,9 @@ author:
   affiliation: Workshop Lead
 - name: Larisa M. Soto
   affiliation: Original Material
-date: '2024-02-14'
+- name: Xiaoqi Xie
+  affiliation: Contributor
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
    rmdformats::html_clean:
     toc: false
@@ -21,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE,eval=TRUE)
 
 # Solutions || Adv. Data Manipulation
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
-knitr::include_graphics("images/MiCM_Logo.jpg")
+knitr::include_graphics("images/MiCM_Logo.png")
 ```
 
 ```{r}

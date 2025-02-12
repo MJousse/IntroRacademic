@@ -5,7 +5,9 @@ author:
   affiliation: Workshop Lead
 - name: Larisa M. Soto
   affiliation: Original Material
-date: '2024-02-14'
+- name: Xiaoqi Xie
+  affiliation: Contributor
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
    rmdformats::html_clean:
     toc: false

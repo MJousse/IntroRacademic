@@ -5,7 +5,9 @@ author:
   affiliation: Workshop Lead
 - name: Larisa M. Soto
   affiliation: Original Material
-date: '2024-02-14'
+- name: Xiaoqi Xie
+  affiliation: Contributor
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
    rmdformats::html_clean:
     toc: true
@@ -19,10 +21,29 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Solutions || Data Types
+# Solutions \|\| Data Types
+
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
-knitr::include_graphics("images/MiCM_Logo.jpg")
+knitr::include_graphics("images/MiCM_Logo.png")
 ```
+
+## Atomic Classes
+
+1.  Write a piece of code that stores a number in a variable and then check if it is greater than 5. Try to use comments!
+2.  Bonus: Is there a way to store the result after checking the number?
+
+```{r}
+
+x <- 10
+x > 5
+
+#Bonus
+y <- x > 5
+
+print(y)
+```
+
+### 
 
 ## Vectors
 
